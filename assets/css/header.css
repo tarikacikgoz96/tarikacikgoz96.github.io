@@ -1,0 +1,131 @@
+header.site-header {
+  background-color: #41678f;
+  color: #ffffff;
+    font-family: Arial, sans-serif;
+    border-bottom: 1px solid #333;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background-image: url("/assets/images/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.header-badges {
+    display: flex;
+    gap: 12px;
+    margin-top: 0px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
+.icon-badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    justify-content: flex-end;
+}
+
+
+.header-logo {    
+  width: 160px;
+  height: auto;
+  border-radius: 50%;
+  display: block; 
+  margin-left: 20px;
+}
+
+
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.icon-logo {
+    width: 28px;
+    height: 28px;
+}
+
+
+
+
+.social-links a {
+    text-decoration: none;
+}
+
+
+.header-main {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+}
+
+
+.header-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto;
+}
+
+.header-nav a {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 0px solid #333;
+    
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #ffffff;
+    color: #000;
+    text-decoration: none;
+       color: #1a1a1a;
+    font-weight: 700;
+   letter-spacing: 0.08em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.header-nav a:hover {
+    background-color: #333;
+    color: #fff;
+        transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+.header-title h1 {
+    font-size: 2.4rem;
+    -webkit-text-stroke: 0.5px #0a2745;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 0;
+    
+}
+
+.header-title p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 8px 0 0;
+    
+}
+
+.header-title p + p {
+    color: #eaeaea;
+}

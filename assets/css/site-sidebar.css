@@ -1,0 +1,23 @@
+.site-sidebar {
+    width: 250px;
+    padding-left: 20px;
+
+    border-left: 1px solid #070707;
+}
+
+.site-link {
+    display: block;
+
+    margin-bottom: 8px;
+
+    text-decoration: none;
+
+    color: #1c1a35;
+
+    transition: all 0.2s ease;
+}
+
+.site-link:hover {
+    color: #41678f;
+    padding-left: 6px;
+}

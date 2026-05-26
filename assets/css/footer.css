@@ -1,0 +1,17 @@
+.site-footer {
+
+    
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+
+    border: 1px solid #333;
+    border-top: none;
+    color: #575656;
+}
+
+.site-footer p {
+    margin: 0;
+    padding: 10px;
+}
