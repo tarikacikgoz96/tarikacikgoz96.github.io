@@ -168,6 +168,9 @@ header.site-header {
 }
 
 
+
+
+
 .header-main.mobile-stack {
 
     flex-direction: column;
@@ -177,12 +180,43 @@ header.site-header {
     text-align: center;
 
     gap: 0.5rem;
-
+    padding: 0.625rem;
+    
 }
+.header-main.mobile-stack .header-title h1{
+
+    font-size: 1.75rem;
+    
+}
+
+
+
 
 .header-main.mobile-stack .social-links {
 
+    margin-top: 0.5rem;
     justify-content: center;
 
 }
 
+.header-main.mobile-stack .header-logo {
+
+    width: 7rem;
+    height: 7rem;
+
+}
+
+
+.header-nav.mobile-stack a {
+
+    font-size: 70% !important;
+    
+
+}
+
+.header-nav.mobile-stack {
+
+    gap: 0.5rem;
+    
+
+}

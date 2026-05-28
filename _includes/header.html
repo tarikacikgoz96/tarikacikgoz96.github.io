@@ -45,37 +45,7 @@
             </div>
         </div>
 
-<script>
-
-function checkHeaderStack() {
-
-    const logo = document.querySelector(".header-logo");
-
-    const title = document.querySelector(".header-title");
-
-    const header = document.querySelector(".header-main");
-
-    if (!logo || !title || !header) return;
-
-    // Ölçüm için geçici normal layout
-    header.classList.remove("mobile-stack");
-
-    const wrapped =
-        title.offsetTop > logo.offsetTop + 20;
-
-    // Gerçek son durum
-    if (wrapped) {
-
-        header.classList.add("mobile-stack");
-
-    }
-}
-
-window.addEventListener("resize", checkHeaderStack);
-
-window.addEventListener("load", checkHeaderStack);
-
-</script>
+<script src="{{ '/assets/js/header_left.js' | relative_url }}"></script>
     </div>
 
 
@@ -95,4 +65,4 @@ window.addEventListener("load", checkHeaderStack);
     </div>
 
 </header>
-<script src="{{ '/assets/js/header.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/header_right.js' | relative_url }}"></script>
