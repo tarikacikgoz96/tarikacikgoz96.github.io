@@ -33,6 +33,8 @@ header.site-header {
     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     justify-content: flex-end;
+    
+
 }
 
 
@@ -124,7 +126,7 @@ header.site-header {
 
 .header-title h1 {
     font-size: 2.4rem;
-    -webkit-text-stroke: 0.03125rem #0a2745;
+    /*-webkit-text-stroke: 0.03125rem #0a2745;*/
     color: #ffffff;
     letter-spacing: 0.04em;
     text-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
