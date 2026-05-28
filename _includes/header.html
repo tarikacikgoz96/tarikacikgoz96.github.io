@@ -50,19 +50,43 @@
 
 
 
-
-
-
-
-    <div class="header-navigator">
-        <nav class="header-nav">
-            <a href="/">Home Page</a>
-            <a href="/profile">Profile</a>
-            <a href="/projects">Projects</a>
-            <a href="/articles">Articles</a>
-            <a href="/devNotes">Dev Notes</a>
-        </nav>
-    </div>
-
 </header>
+
+<div class="header-navigator">
+
+    <button class="menu-toggle">
+    ☰ Menu
+    </button>
+
+    <nav class="header-nav">
+<a href="/"
+   class="{% if page.url == '/' %}active{% endif %}">
+   Home Page
+</a>
+
+<a href="/profile"
+   class="{% if page.url contains '/profile' %}active{% endif %}">
+   Profile
+</a>
+
+<a href="/projects"
+   class="{% if page.url contains '/projects' %}active{% endif %}">
+   Projects
+</a>
+
+<a href="/articles"
+   class="{% if page.url contains '/articles' %}active{% endif %}">
+   Articles
+</a>
+
+<a href="/devNotes"
+   class="{% if page.url contains '/devNotes' %}active{% endif %}">
+   Dev Notes
+</a>
+    </nav>
+</div>
+
+
 <script src="{{ '/assets/js/header_right.js' | relative_url }}"></script>
+
+
