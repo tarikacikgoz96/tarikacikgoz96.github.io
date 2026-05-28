@@ -4,8 +4,15 @@ title: Projects
 ---
 
 
-# Projects
+# Projects (Projeler / İşler)
+    Gerçekleştirdiğim proje ve işler
 
+İçerik eklendikçe LinkedIn'de paylaşım / duyuru yapılacaktır.
+Lütfen LinkedIn profilimi takip etmeyi unutmayın.
+
+Listedeki proje başlıkları şuanlık test için paylaşılmıştır.
+
+## Genel
 
 
 <div class="project-navigation">

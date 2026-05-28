@@ -3,7 +3,12 @@ layout: site_nav
 title: DevNotes
 ---
 
-DEV Notes
+# Developer Notes (Geliştirici Notları)
+    Nasıl yapılır, faydalı kod parçaları vb.
+
+İçerik eklendikçe LinkedIn'de paylaşım / duyuru yapılacaktır.
+Lütfen LinkedIn profilimi takip etmeyi unutmayın.
+
 
 
 <div class="project-navigation">

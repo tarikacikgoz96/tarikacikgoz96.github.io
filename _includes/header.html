@@ -21,27 +21,61 @@
         <img src="/assets/images/profile_photo.jpg" alt="Profile photo" class="header-logo">
         
         <div class="header-title">
-                <h1>Tarık AÇIKGÖZ</h1>
-                <p>Computer Engineer</p>
-                <p>tarikacikgoz96@gmail.com</p>
-         <div class="social-links">
-
-            <a href="https://www.linkedin.com/in/tarikacikgoz1996/">
-                <img src="/assets/images/icon1.png" alt="linkedin" class="icon-logo">
-            </a>
-
-            <a href="https://github.com/tarikacikgoz96">
-                <img src="/assets/images/icon2.png" alt="github" class="icon-logo">           
-            </a>
-
-
-        </div>
+            <h1>Tarık AÇIKGÖZ</h1>
+            <p>Computer Engineer</p>
+            <p>tarikacikgoz96@gmail.com</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/tarikacikgoz1996/">
+                    <img src="/assets/images/icon1.png" alt="linkedin" class="icon-logo">
+                </a>
+                <a href="https://github.com/tarikacikgoz96">
+                    <img src="/assets/images/icon2.png" alt="github" class="icon-logo">           
+                </a>
+            </div>
         </div>
 
-        <div class="header-badges">
-            <img src="/assets/images/badge1.png" alt="TSK" class="icon-badge">
-            <img src="/assets/images/badge2.png" alt="EGE University" class="icon-badge"> 
+        <div class="header-right">
+            <div class="header-badges">
+                <img src="/assets/images/badge1.png" alt="TSK" class="icon-badge">
+                <img src="/assets/images/badge2.png" alt="EGE University" class="icon-badge">
+            </div>
+            <div class="header-words">
+                <p>Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak. </p>
+                <p> M. Kemal ATATÜRK</p>
+            </div>
         </div>
+
+<script>
+
+function checkHeaderStack() {
+
+    const logo = document.querySelector(".header-logo");
+
+    const title = document.querySelector(".header-title");
+
+    const header = document.querySelector(".header-main");
+
+    if (!logo || !title || !header) return;
+
+    // Ölçüm için geçici normal layout
+    header.classList.remove("mobile-stack");
+
+    const wrapped =
+        title.offsetTop > logo.offsetTop + 20;
+
+    // Gerçek son durum
+    if (wrapped) {
+
+        header.classList.add("mobile-stack");
+
+    }
+}
+
+window.addEventListener("resize", checkHeaderStack);
+
+window.addEventListener("load", checkHeaderStack);
+
+</script>
     </div>
 
 
@@ -61,3 +95,4 @@
     </div>
 
 </header>
+<script src="/assets/js/header.js"></script>

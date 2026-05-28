@@ -6,12 +6,13 @@
 
     text-align: center;
 
-    border: 1px solid #333;
+    border: 0.0625rem solid #333;
     border-top: none;
     color: #575656;
+    
 }
 
 .site-footer p {
     margin: 0;
-    padding: 10px;
+    padding: 0.625rem;
 }

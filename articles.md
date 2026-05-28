@@ -3,7 +3,12 @@ layout: site_nav
 title: Articles
 ---
 
-Artiklestir ha
+# Articles (Makaleler)
+    Yararlı fikir ve düşünce yazıları
+
+İçerik eklendikçe LinkedIn'de paylaşım / duyuru yapılacaktır.
+Lütfen LinkedIn profilimi takip etmeyi unutmayın.
+
 
 
 <div class="project-navigation">

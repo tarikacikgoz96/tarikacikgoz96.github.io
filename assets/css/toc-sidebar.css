@@ -1,14 +1,14 @@
 .toc-sidebar {
-    width: 250px;
-    padding-left: 20px;
+    width: 15.625rem;
+    padding-left: 1.25rem;
 
-    border-left: 1px solid #070707;
+    border-left: 0.0625rem solid #070707;
 }
 
 .toc-link {
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
 
     text-decoration: none;
 
@@ -19,14 +19,14 @@
 
 .toc-link:hover {
     color: #41678f;
-    padding-left: 6px;
+    padding-left: 0.375rem;
 }
 .toc-sub {
-    padding-left: 16px;
+    padding-left: 1rem;
     font-size: 0.95rem;
 }
 
 .toc-sub-sub {
-    padding-left: 32px;
+    padding-left: 2rem;
     font-size: 0.9rem;
 }
