@@ -159,7 +159,15 @@ header.site-header {
 
 }
 
+.header-right-hidden {
 
+    visibility: hidden;
+
+    position: absolute;
+
+    pointer-events: none;
+
+}
 
 
 .header-words p {

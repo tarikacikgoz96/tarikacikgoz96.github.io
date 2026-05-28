@@ -63,7 +63,7 @@ function checkNavWrap() {
 
 
 // Sayfa yüklenince
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
     checkHeaderStack();
 
@@ -87,11 +87,15 @@ window.addEventListener("load", () => {
 
 
 
-// Resize
-window.addEventListener("resize", () => {
+function refreshHeader() {
 
     checkHeaderStack();
 
     checkNavWrap();
 
-});
+    checkHeaderWrap();
+}
+
+window.addEventListener("DOMContentLoaded", refreshHeader);
+
+window.addEventListener("resize", refreshHeader);
