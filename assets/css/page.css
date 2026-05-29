@@ -1,4 +1,8 @@
+* {
 
+    box-sizing: border-box;
+
+}
 .page       
 {
     /*padding: 1.25rem;*/

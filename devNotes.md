@@ -1,5 +1,5 @@
 ---
-layout: site_nav
+layout: default
 title: DevNotes
 ---
 

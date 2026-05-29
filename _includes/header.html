@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarık Portfolio</title>
-    <!--<link rel="stylesheet" href="header.css">-->
-    <link rel="stylesheet" href="{{ '/assets/css/header.css' | relative_url }}">
-</head>
-
-
 <header class="site-header">
     
-
-    
-    
-
 
 
     <div class="header-main">
@@ -45,48 +30,12 @@
             </div>
         </div>
 
-<script src="{{ '/assets/js/header_left.js' | relative_url }}"></script>
+
     </div>
 
 
 
 </header>
 
-<div class="header-navigator">
-
-    <button class="menu-toggle">
-    ☰ Menu
-    </button>
-
-    <nav class="header-nav">
-    <a href="/"
-    class="{% if page.url == '/' %}active{% endif %}">
-    Home Page
-    </a>
-
-    <a href="/profile"
-    class="{% if page.url contains '/profile' %}active{% endif %}">
-    Profile
-    </a>
-
-    <a href="/projects"
-    class="{% if page.url contains '/projects' %}active{% endif %}">
-    Projects
-    </a>
-
-    <a href="/articles"
-    class="{% if page.url contains '/articles' %}active{% endif %}">
-    Articles
-    </a>
-
-    <a href="/devNotes"
-    class="{% if page.url contains '/devNotes' %}active{% endif %}">
-    Dev Notes
-    </a>
-    </nav>
-</div>
-
-
-<script src="{{ '/assets/js/header_right.js' | relative_url }}"></script>
 
 
