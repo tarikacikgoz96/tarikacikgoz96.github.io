@@ -13,5 +13,15 @@ window.addEventListener("DOMContentLoaded", () => {
             nav.classList.toggle("open");
 
         });
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 992) {
+
+                nav.classList.remove("open");
+
+            }
+
+        });
     }
 });

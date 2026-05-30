@@ -1,12 +1,10 @@
-
 header.site-header {
-  background-color: #41678f;
-  color: #ffffff;
+    background-color: #41678f;
+    color: #ffffff;
     font-family: Arial, sans-serif;
-    border-bottom: 0.0625rem solid #333;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    background-image: url("/assets/images/banner.jpg");
+    background-image: url("/site-settings/images/banner.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,8 +12,12 @@ header.site-header {
     border: 0.0625rem solid #333;
 }
 
-
-
+.header-main {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    flex-wrap: wrap;
+}
 
 .header-badges {
     display: flex;
@@ -26,48 +28,19 @@ header.site-header {
     height: 100%;
 }
 
-
 .icon-badge {
     width: 4.5rem;
     height: 4.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    justify-content: flex-end;
-    
-
 }
-
 
 .header-logo {    
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
     display: block; 
-    margin-left: 0rem;
-}
-
-
-
-.header-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /*width: 100%;*/
-    
-    margin: 0 ;/**/
-    
-
-    flex: 1;
-
-}
-
-
-
-.social-links {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1.25rem;
 }
 
 .icon-logo {
@@ -75,32 +48,20 @@ header.site-header {
     height: 1.75rem;
 }
 
-
-
-
-.social-links a {
-    text-decoration: none;
-}
-
-
-.header-main {
+.header-title {
     display: flex;
-    gap: 1.25rem;
-    padding: 1.25rem;
-      flex-wrap: wrap;
-
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 ;
+    flex: 1;
 }
-
-
 
 .header-title h1 {
     font-size: 2.4rem;
-    /*-webkit-text-stroke: 0.03125rem #0a2745;*/
     color: #ffffff;
     letter-spacing: 0.04em;
     text-shadow: 0.125rem 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
     margin: 0;
-    
 }
 
 .header-title p {
@@ -114,155 +75,99 @@ header.site-header {
     color: #eaeaea;
 }
 
-.header-right {
-
+.social-links {
     display: flex;
-
-    flex-direction: column;
-
-    margin-left: auto;
-
-    /*white-space: nowrap;*/
-
-    flex-shrink: 1;
-
+    gap: 0.75rem;
+    margin-top: 1.25rem;
 }
 
+.social-links a {
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    flex-shrink: 1;
+}
 
 .header-words p {
-        text-align: right;
-        margin-top: 0.3125rem;
-        margin-bottom: 0;
+    text-align: right;
+    margin-top: 0.3125rem;
+    margin-bottom: 0;
 }
 
-
-
-
-
-
-
-
-
-/* XXL */
-@media (max-width: 1400px) {
-
-    .header-right {
-
-        display: flex;
-
-    }
-}
-
-
-/* XL */
 @media (max-width: 1200px) {
 
     .header-right {
-
         display: none;
-
     }
 
     .header-main {
-
         gap: 1rem;
-
     }
+
 }
 
-
-/* LG */
 @media (max-width: 992px) {
 
     .header-main {
-
         gap: 0.75rem;
-
     }
 
     .header-logo {
-
         width: 8rem;
-
         height: 8rem;
-
     }
 
     .header-title h1 {
-
         font-size: 2rem;
-
     }
-
 
 }
 
 
-/* MD */
 @media (max-width: 768px) {
 
     .header-main {
-
         flex-direction: column;
-
         align-items: center;
-
         text-align: center;
-
         gap: 0.5rem;
-
         padding: 0.625rem;
-
     }
 
     .header-logo {
-
         width: 7rem;
-
         height: 7rem;
-
     }
 
     .header-title h1 {
-
         font-size: 1.75rem;
-
     }
 
     .social-links {
-
         justify-content: center;
-
         margin-top: 0.5rem;
-
     }
+
 }
 
 
-/* SM */
 @media (max-width: 576px) {
 
     .header-title h1 {
-
         font-size: 1.5rem;
-
     }
 
     .header-title p {
-
         font-size: 0.9rem;
-
     }
 
     .icon-logo {
-
         width: 1.5rem;
-
         height: 1.5rem;
-
     }
+
 }
-
-
-
-

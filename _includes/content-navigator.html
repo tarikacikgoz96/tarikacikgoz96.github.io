@@ -1,0 +1,73 @@
+<div class="content-navigator">
+
+{% assign current_section = page.name | replace: '.md', '' %}
+
+<!-- Root files -->
+
+{% for item in site.contents %}
+
+    {% assign parts = item.path | split: "/" %}
+
+    {% if parts.size == 3 %}
+
+        {% if parts[1] == current_section %}
+
+            <a href="{{ item.url }}">
+                - {{ item.title }}
+            </a>
+
+        {% endif %}
+
+    {% endif %}
+
+{% endfor %}
+
+<!-- Categories -->
+
+{% assign categories = "" | split: "" %}
+
+{% for item in site.contents %}
+
+    {% assign parts = item.path | split: "/" %}
+
+    {% if parts.size > 3 %}
+
+        {% if parts[1] == current_section %}
+
+            {% assign category = parts[2] %}
+
+            {% unless categories contains category %}
+                {% assign categories = categories | push: category %}
+            {% endunless %}
+
+        {% endif %}
+
+    {% endif %}
+
+{% endfor %}
+
+{% for category in categories %}
+
+    <h2>{{ category | replace: "_", " " }}</h2>
+
+    {% for item in site.contents %}
+
+        {% assign parts = item.path | split: "/" %}
+
+        {% if parts.size > 3 %}
+
+            {% if parts[1] == current_section and parts[2] == category %}
+
+                <a href="{{ item.url }}">
+                    - {{ item.title }}
+                </a>
+
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+
+{% endfor %}
+
+</div>

@@ -1,2 +1,7 @@
 kramdown:
   hard_wrap: true
+
+collections:
+  contents:
+    output: true
+    permalink: /:path/
