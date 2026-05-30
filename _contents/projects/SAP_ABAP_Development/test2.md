@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Sap Bom Patlatma
 ---
 # SAP da BOM Patlatıp Malzeme getirme

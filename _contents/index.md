@@ -1,7 +1,8 @@
 ---
-layout: default
-title: Home
+title: Home Page
 permalink: /
+show_in_menu: true
+menu_order: 1
 ---
 
 # Hoşgeldiniz

@@ -6,30 +6,16 @@
     </button>
 
     <nav class="header-nav">
-    <a href="/"
-    class="{% if page.url == '/' %}active{% endif %}">
-    Home Page
-    </a>
+        {% assign menu_pages = site.contents | where: "show_in_menu", true | sort: "menu_order" %}
 
-    <a href="/profile"
-    class="{% if page.url contains '/profile' %}active{% endif %}">
-    Profile
-    </a>
+        {% for item in menu_pages %}
 
-    <a href="/projects"
-    class="{% if page.url contains '/projects' %}active{% endif %}">
-    Projects
-    </a>
+            <a href="{{ item.url }}"
+               class="{% if page.url == item.url %}active{% endif %}">
+                {{ item.title }}
+            </a>
 
-    <a href="/articles"
-    class="{% if page.url contains '/articles' %}active{% endif %}">
-    Articles
-    </a>
-
-    <a href="/devNotes"
-    class="{% if page.url contains '/devNotes' %}active{% endif %}">
-    Dev Notes
-    </a>
+        {% endfor %}
     </nav>
     
 </div>

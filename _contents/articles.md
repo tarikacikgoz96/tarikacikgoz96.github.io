@@ -1,6 +1,7 @@
 ---
-layout: default
 title: Articles
+show_in_menu: true
+menu_order: 4
 ---
 
 # Articles (Makaleler)

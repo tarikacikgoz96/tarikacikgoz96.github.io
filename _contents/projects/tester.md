@@ -1,5 +1,4 @@
 ---
-layout: default
 title: İkinci test deneme projem
 ---
 

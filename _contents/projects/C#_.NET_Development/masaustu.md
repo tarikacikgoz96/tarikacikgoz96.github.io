@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Masaüstü Uygulama projesi
 ---
 # Masaüstü Uygulama projesi

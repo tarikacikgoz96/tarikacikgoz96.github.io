@@ -1,6 +1,7 @@
 ---
-layout: default
-title: DevNotes
+title: Dev Notes
+show_in_menu: true
+menu_order: 5
 ---
 
 # Developer Notes (Geliştirici Notları)

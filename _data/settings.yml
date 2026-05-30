@@ -1,0 +1,29 @@
+site_title: Tarık AÇIKGÖZ
+job_title: Computer Engineer
+email: tarikacikgoz96@gmail.com
+
+logo: /images/logo.png
+banner: /images/banner.png
+
+social_links:
+  - url: https://www.linkedin.com/in/tarikacikgoz1996/
+    alt: LinkedIn
+    icon: /images/icon_linkedin.png
+
+  - url: https://github.com/tarikacikgoz96
+    alt: GitHub
+    icon: /images/icon_github.png
+
+badges:
+  - image: /images/badge_tsk.png
+    alt: TSK
+
+  - image: /images/badge_ege.png
+    alt: Ege University
+
+
+quote: Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak.
+quote_author: M. Kemal ATATÜRK
+footer_text: © 2026 Tarık AÇIKGÖZ Personal Website / Portfolio
+
+

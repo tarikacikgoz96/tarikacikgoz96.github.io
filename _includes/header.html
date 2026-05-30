@@ -1,32 +1,37 @@
-<header class="site-header">
+<header class="site-header"
+        style="background-image: url('{{ site.data.settings.banner }}');">
     
 
 
     <div class="header-main">
-        <img src="/site-settings/images/logo.jpg" alt="Profile photo" class="header-logo">
+        <img src="{{ site.data.settings.logo }}" alt="Logo" class="header-logo">
         
         <div class="header-title">
-            <h1>Tarık AÇIKGÖZ</h1>
-            <p>Computer Engineer</p>
-            <p>tarikacikgoz96@gmail.com</p>
+            <h1>{{ site.data.settings.site_title }}</h1>
+            <p>{{ site.data.settings.job_title }}</p>
+            <p>{{ site.data.settings.email }}</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/tarikacikgoz1996/">
-                    <img src="/site-settings/images/icon1.png" alt="linkedin" class="icon-logo">
-                </a>
-                <a href="https://github.com/tarikacikgoz96">
-                    <img src="/site-settings/images/icon2.png" alt="github" class="icon-logo">           
-                </a>
+                {% for social in site.data.settings.social_links %}
+                    <a href="{{ social.url }}">
+                        <img src="{{ social.icon }}"
+                            alt="{{ social.alt }}"
+                            class="icon-logo">
+                    </a>
+                {% endfor %}
             </div>
         </div>
 
         <div class="header-right">
             <div class="header-badges">
-                <img src="/site-settings/images/badge1.png" alt="TSK" class="icon-badge">
-                <img src="/site-settings/images/badge2.png" alt="EGE University" class="icon-badge">
+                {% for badge in site.data.settings.badges %}
+                    <img src="{{ badge.image }}"
+                        alt="{{ badge.alt }}"
+                        class="icon-badge">
+                {% endfor %}
             </div>
             <div class="header-words">
-                <p>Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak. </p>
-                <p> M. Kemal ATATÜRK</p>
+                <p>{{ site.data.settings.quote }}</p>
+                <p> {{ site.data.settings.quote_author }}</p>
             </div>
         </div>
 

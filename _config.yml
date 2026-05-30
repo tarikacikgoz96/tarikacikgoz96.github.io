@@ -5,3 +5,11 @@ collections:
   contents:
     output: true
     permalink: /:path/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: contents
+    values:
+      layout: default

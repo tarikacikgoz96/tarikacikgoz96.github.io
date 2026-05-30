@@ -1,6 +1,7 @@
 ---
-layout: default
 title: Profile
+show_in_menu: true
+menu_order: 2
 ---
 
 # Profile (CV)

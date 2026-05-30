@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Bu site nasıl yapıldı
 ---
 

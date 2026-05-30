@@ -1,6 +1,7 @@
 ---
-layout: default
 title: Projects
+show_in_menu: true
+menu_order: 3
 ---
 
 
