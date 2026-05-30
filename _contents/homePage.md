@@ -20,8 +20,8 @@ Lütfen LinkedIn profilimi takip etmeyi unutmayın.
 
 Site hazır şablon değil, sıfırdan tamamen kendi tasarımım ve geliştirmemdir.
 **Site açık kaynak kodludur.** Kendi kişisel web site / portfolyonuz için kullanabilirsiniz.
-Site kaynak kodları: <a href="https://github.com/tarikacikgoz96/tarikacikgoz96.github.io">https://github.com/tarikacikgoz96/tarikacikgoz96.github.io</a>
-Bu sitenin nasıl yapıldığı hakkında detaylı bilgi ve teknik detaylar "Projects" sayfasında paylaşılacaktır.
+Site kaynak kodları: <a href="https://github.com/tarikacikgoz96/jekyll-portfolio-template">https://github.com/tarikacikgoz96/jekyll-portfolio-template</a>
+Bu sitenin dökümantasyonu ve kendinize uygulayabilmeniz için yapmanız gereken adımlar detaylı olarak "Projects" sayfasında paylaşılacaktır.
 
 Paylaştığım içeriklerin meslektaşlarıma / insanlığa faydalı olmasını umut ediyor ve herkese kariyerinde başarılar diliyorum.
 <!--<img src="/assets/content_images/profile_photo.jpg" width="200">-->
