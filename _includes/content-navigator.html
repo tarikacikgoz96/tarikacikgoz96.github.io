@@ -48,19 +48,57 @@
 
 {% for category in categories %}
 
-    <h2>{{ category | replace: "_", " " }}</h2>
+    {% assign category_info = nil %}
 
     {% for item in site.contents %}
 
         {% assign parts = item.path | split: "/" %}
+        {% assign filename = parts | last %}
 
         {% if parts.size > 3 %}
 
             {% if parts[1] == current_section and parts[2] == category %}
 
-                <a href="{{ item.url }}">
-                    - {{ item.title }}
-                </a>
+                {% if filename == "info.md" %}
+                    {% assign category_info = item %}
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% if category_info %}
+
+        <h2>{{ category_info.title }}</h2>
+
+        {% if category_info.description %}
+            <p>{{ category_info.description }}</p>
+        {% endif %}
+
+    {% else %}
+
+        <h2>{{ category | replace: "_", " " }}</h2>
+
+    {% endif %}
+
+    {% for item in site.contents %}
+
+        {% assign parts = item.path | split: "/" %}
+        {% assign filename = parts | last %}
+
+        {% if parts.size > 3 %}
+
+            {% if parts[1] == current_section and parts[2] == category %}
+
+                {% unless filename == "info.md" %}
+
+                    <a href="{{ item.url }}">
+                        - {{ item.title }}
+                    </a>
+
+                {% endunless %}
 
             {% endif %}
 

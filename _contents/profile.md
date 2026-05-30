@@ -11,7 +11,7 @@ Bilgisayar mühendisiyim, .NET ortam geliştirmeleri, REST API entegrasyonları 
 
 ## Teknik Yetkinlikler
 ### - Coding Languages:
-C#, .NET Framework, Python, ABAP, SQL, HTML, CSS, JavaScript, JSON, XML, UBL, XSLT, REST API
+C#, .NET Framework, Python, ABAP, SQL, REST API, HTML, CSS, JavaScript, Liquid, JSON, XML, UBL, XSLT, YML, LSL, Lua
 ### - .NET Development:
 ASP.NET Web Uygulamaları, C# Backend Development, REST API Entegrasyonu, SAP-ASP.NET Bağlantısı, IIS, Azure
 ### - SAP Development:
@@ -23,9 +23,9 @@ Visual Studio IDE, Visual Studio Code, Postman, Pycharm IDE, SAP Development Wor
 ### - Libraries:
 Telerik, Jekyll, Playwright, Paramiko, Numpy, Pandas
 ### - Disciplines:
-Object Oriented, Clean Code (Mutlaka), Encapsulation, Clean Core, MVC, Multi Language, Multi disciplinary, Test Cases, Optimization, AI Araçlarını Verimli Kullanma, İş kordinasyonu, Raporlama, Sürekli Gelişim
+Object Oriented, Clean Code (Mutlaka), Encapsulation, Clean Core, MVC, Multi Language, Multi disciplinary, Test Cases, Performance Optimization, AI Araçlarını Verimli Kullanma, İş kordinasyonu, Raporlama, Sürekli Gelişim
 ### - IT Infrastructure:
-Windows Server, Linux, VMware, ESXi, Active Directory, Domain, GPO, Group Policy, Server & Network Security, System Monitoring, IP Camera, Veeam Backup, Acronis Image
+Windows Server, Linux, VMware, ESXi, Active Directory, Domain, GPO, Group Policy, Server & Network Security, System Admin, System Monitoring, IP Camera, Veeam Backup, Acronis Image
 ### - Network & Protocols:
 LAN, WAN, WLAN, VLAN, Cisco Devices, Switch, Router, Access Point, PfSense, Firewall, TCP/IP, IPv4, DNS, DHCP, SSH, FTP, VPN, NTP
 
