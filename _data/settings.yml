@@ -1,4 +1,8 @@
 site_title: Tarık AÇIKGÖZ Personal Website / Portfolio
+meta_description: Computer Engineer portfolio, SAP ABAP projects, .NET development and technical articles.
+favicon: /images/site/favicon.png
+language: tr
+
 profile_name: Tarık AÇIKGÖZ
 job_title: Computer Engineer
 email: tarikacikgoz96@gmail.com
@@ -24,4 +28,3 @@ badges:
 
   - image: /images/site/badge_ege.png
     alt: Ege University
-
