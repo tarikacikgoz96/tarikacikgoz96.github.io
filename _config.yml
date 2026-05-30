@@ -7,8 +7,7 @@ collections:
     permalink: /:path/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: contents
     values:
