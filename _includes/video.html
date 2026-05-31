@@ -1,3 +1,5 @@
-<video controls
-       src="{{ include.src }}">
+<video
+    controls
+    src="{{ include.src }}"
+    style="width:{{ include.width | default: '100%' }};">
 </video>

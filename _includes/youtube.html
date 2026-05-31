@@ -1,6 +1,10 @@
-<div class="video-container">
+<div
+    class="video-container"
+    style="width:{{ include.width | default: '100%' }};">
+
     <iframe
         src="https://www.youtube.com/embed/{{ include.id }}"
         allowfullscreen>
     </iframe>
+
 </div>

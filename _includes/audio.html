@@ -1,3 +1,5 @@
-<audio controls
-       src="{{ include.src }}">
+<audio
+    controls
+    src="{{ include.src }}"
+    style="width:{{ include.width | default: '100%' }};">
 </audio>
