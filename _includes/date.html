@@ -1,0 +1,17 @@
+{% if page.date or page.updated %}
+<div class="content-dates">
+
+    {% if page.date %}
+    <span class="content-date">
+        Published: {{ page.date | date: "%d.%m.%Y" }}
+    </span>
+    {% endif %}
+
+    {% if page.updated %}
+    <span class="content-date">
+        Updated: {{ page.updated | date: "%d.%m.%Y" }}
+    </span>
+    {% endif %}
+
+</div>
+{% endif %}
