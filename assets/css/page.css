@@ -57,6 +57,7 @@
 }
 
 .main-content pre {
+    margin-top: 0;
     padding: 1rem;
     border-radius: 0.625rem;
     overflow-x: auto;
@@ -75,4 +76,15 @@
 .main-content img {
     max-width: 100%;
     height: auto;
+}
+
+.code-language {
+    background: #41678f;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.375rem 0.75rem;
+    
+    border-top-left-radius: 0.625rem;
+    border-top-right-radius: 0.625rem;
 }

@@ -5,7 +5,7 @@ menu_order: 4
 ---
 
 # Articles (Makaleler)
-    Yararlı fikir ve düşünce yazıları
+***- Yararlı fikir ve düşünce yazıları***
 
 İçerik eklendikçe LinkedIn'de paylaşım / duyuru yapılacaktır.
 Lütfen LinkedIn profilimi takip etmeyi unutmayın.

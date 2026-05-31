@@ -5,7 +5,7 @@ menu_order: 2
 ---
 
 # Profile (CV)
-    Tecrübe ve deneyimlerim arttıkça bu sayfa güncellenecektir.
+***- Tecrübe ve deneyimlerim arttıkça bu sayfa güncellenecektir.***
 
 Bilgisayar mühendisiyim, .NET ortam geliştirmeleri, REST API entegrasyonları SAP ERP ABAP geliştirme ve Python ile RPA otomasyon çözümleri geliştirmekteyim. IT altyapıları, sistem ve ağ yönetimi / sorunları ile kullanıcı destek alanlarında deneyime sahibim. Mesleğimi severek icra etmekteyim.
 
