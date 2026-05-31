@@ -114,10 +114,15 @@
 }
 
 @media (max-width: 768px) {
+
     .content-media {
         width: 100% !important;
     }
-}
+
+    .main-content audio {
+        width: 100% !important;
+    }
+
 
 .code-language {
     background: #41678f;
