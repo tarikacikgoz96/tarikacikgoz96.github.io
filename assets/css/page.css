@@ -60,6 +60,8 @@
     padding: 1rem;
     border-radius: 0.625rem;
     overflow-x: auto;
+    background-color: #eef3f8;
+    border: 0.0625rem solid #d6e0ea;
 }
 
 .main-content code {
@@ -68,4 +70,9 @@
 
 .main-content a {
     overflow-wrap: anywhere;
+}
+
+.main-content img {
+    max-width: 100%;
+    height: auto;
 }

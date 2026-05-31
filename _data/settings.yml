@@ -1,6 +1,6 @@
 site_title: Tarık AÇIKGÖZ Personal Website / Portfolio
 meta_description: Computer Engineer portfolio, SAP ABAP projects, .NET development and technical articles.
-favicon: /images/site/favicon.png
+favicon: /assets/images/favicon.png
 language: tr
 
 profile_name: Tarık AÇIKGÖZ
@@ -10,21 +10,21 @@ quote: Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak.
 quote_author: M. Kemal ATATÜRK
 footer_text: © 2026 Tarık AÇIKGÖZ Personal Website / Portfolio
 
-logo: /images/site/logo.png
-banner: /images/site/banner.png
+logo: /assets/images/logo.png
+banner: /assets/images/banner.png
 
 social_links:
   - url: https://www.linkedin.com/in/tarikacikgoz1996/
     alt: LinkedIn
-    icon: /images/site/icon_linkedin.png
+    icon: /assets/images/icon_linkedin.png
 
   - url: https://github.com/tarikacikgoz96
     alt: GitHub
-    icon: /images/site/icon_github.png
+    icon: /assets/images/icon_github.png
 
 badges:
-  - image: /images/site/badge_tsk.png
+  - image: /assets/images/badge_tsk.png
     alt: TSK
 
-  - image: /images/site/badge_ege.png
+  - image: /assets/images/badge_ege.png
     alt: Ege University
