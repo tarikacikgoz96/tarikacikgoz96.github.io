@@ -1,7 +1,15 @@
-<div class="image-container">
+<div class="media-container media-{{ include.align | default: 'left' }}">
+
     <img
-        src="{{ include.src }}"
         alt="{{ include.alt }}"
+        src="{{ include.src }}"
         class="content-media"
         style="width:{{ include.width | default: '100%' }};">
+
+    {% if include.caption %}
+    <div class="media-caption">
+        {{ include.caption }}
+    </div>
+    {% endif %}
+
 </div>

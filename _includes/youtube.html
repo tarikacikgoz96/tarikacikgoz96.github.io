@@ -1,10 +1,20 @@
-<div
-    class="video-container content-media"
-    style="width:{{ include.width | default: '100%' }};">
+<div class="media-container media-{{ include.align | default: 'left' }}">
 
-    <iframe
-        src="https://www.youtube.com/embed/{{ include.id }}"
-        allowfullscreen>
-    </iframe>
+    <div
+        class="youtube-frame"
+        style="width:{{ include.width | default: '100%' }};">
+
+        <iframe
+            src="https://www.youtube.com/embed/{{ include.id }}"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+    {% if include.caption %}
+    <div class="media-caption">
+        {{ include.caption }}
+    </div>
+    {% endif %}
 
 </div>

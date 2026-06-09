@@ -1,6 +1,16 @@
-<video
-    controls
-    src="{{ include.src }}"
-    class="content-media"
-    style="width:{{ include.width | default: '100%' }};">
-</video>
+<div class="media-container media-{{ include.align | default: 'left' }}">
+
+    <video
+        controls
+        src="{{ include.src }}"
+        class="content-media"
+        style="width:{{ include.width | default: '100%' }};">
+    </video>
+
+    {% if include.caption %}
+    <div class="media-caption">
+        {{ include.caption }}
+    </div>
+    {% endif %}
+
+</div>
