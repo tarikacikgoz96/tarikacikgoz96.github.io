@@ -19,13 +19,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         label.className = "code-language";
 
-        label.textContent =
-            language.toUpperCase();
+        label.innerHTML = `
+            <span>${language.toUpperCase()}</span>
+            <button class="copy-btn">Copy</button>
+        `;
 
         pre.prepend(label);
 
-    });
+        const copyButton =
+            label.querySelector(".copy-btn");
 
+        copyButton.addEventListener("click", async () => {
+
+            const code =
+                pre.querySelector("code")?.innerText || "";
+
+            await navigator.clipboard.writeText(code);
+
+            copyButton.textContent = "Copied!";
+
+            setTimeout(() => {
+                copyButton.textContent = "Copy";
+            }, 1500);
+
+        });
+
+    });
+console.log(hljs.listLanguages());
     hljs.highlightAll();
 
 });
