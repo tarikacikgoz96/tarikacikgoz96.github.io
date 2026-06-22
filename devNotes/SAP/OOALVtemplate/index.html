@@ -157,18 +157,72 @@
 
     
     <span class="content-date">
-        Updated: 14.06.2026
+        Updated: 22.06.2026
     </span>
     
 
 </div>
 
-<p>OO ALV için temel şablondur.</p>
+<div class="media-container media-center">
+
+    <img alt="OO ALV template" src="/devNotes/SAP/OOALVtemplate_1.png" class="content-media" style="width:75%;" />
+
+    
+
+</div>
+
+<p><strong><em>OO ALV için temel şablondur.</em></strong></p>
 
 <p>Bir SAP raporunda sadece bir ALV ekrana basılacak ise tercih edilebilir.<br />
-Veri çekme işleri dışarıda yapılır, (FORM vb.) içine herhangi bir tipte itab gönderilir ve ekrana basılmış olur.<br />
-Kullanımdan önce Screen, GUI Status, GUI Title oluşturulmalı ve CLS müşteri isteğine/rapora göre özelleştirilmelidir.<br />
-Şablon ve açıklamalar zamanla güncellenecektir.</p>
+Veri çekme işleri dışarıda yapılır, (FORM, Metot, vb.) içine herhangi bir tipte itab gönderilir ve ekrana ALV basılmış olur.<br />
+Kullanımdan önce</p>
+<ul>
+  <li>Screen</li>
+  <li>GUI Status</li>
+  <li>GUI Title oluşturulmalı</li>
+  <li>LCL_ALV müşteri isteğine/rapora göre özelleştirilmelidir.</li>
+</ul>
+
+<p>Şablon ve açıklamalar zamanla güncellenecektir.</p>
+
+<p>Neden genellikle OO ALV tercih edilmelidir;</p>
+<ul>
+  <li>Simple ve Reuse ALV kullanılınca, ALV üzerinde tam yetkiniz olmaz.</li>
+  <li>Edite açık satır-hücre, satır-hücre boyama vb. geliştirmeleri diğer ALV çeşitlerinde yapamazsınız.</li>
+  <li>Müşteri her an yeni bir istekle gelebilir.</li>
+</ul>
+
+<p><strong><em>Temel çalıştırma aşağıdaki gibidir;</em></strong></p>
+
+<p>ZPROGRAM</p>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPORT</span> <span class="n">ZOOALV_TEMPLATE</span><span class="p">.</span>
+
+<span class="k">INCLUDE</span> <span class="n">zooalv_template_top</span><span class="p">.</span>
+<span class="k">include</span> <span class="n">zooalv_template_cls</span><span class="p">.</span>
+
+
+
+<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
+  <span class="k">PERFORM</span> <span class="n">GET_DATA</span><span class="p">.</span>
+
+  <span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">GO_ALV</span><span class="p">.</span>
+  <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">set_data</span><span class="p">(</span> <span class="k">REF</span> <span class="o">#</span><span class="p">(</span> <span class="n">gt_mara</span> <span class="p">)</span> <span class="p">).</span>
+  <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">run</span><span class="p">(</span> <span class="p">).</span>
+
+<span class="k">end</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
+
+
+<span class="k">FORM</span> <span class="n">GET_DATA</span><span class="p">.</span>
+  <span class="k">SELECT</span> <span class="o">*</span>
+    <span class="k">FROM</span> <span class="n">MARA</span>
+    <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">GT_MARA</span>
+    <span class="k">WHERE</span> <span class="n">MATNR</span> <span class="k">IN</span> <span class="n">S_MATNR</span><span class="p">.</span>
+<span class="k">ENDFORM</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><strong><em>LCL_ALV OO ALV Builder kodu;</em></strong></p>
 
 <p>ZPROGRAM_CLS</p>
 <div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="n">lcl_alv</span> <span class="k">DEFINITION</span> <span class="k">DEFERRED</span><span class="p">.</span>
@@ -564,35 +618,7 @@ Kullanımdan önce Screen, GUI Status, GUI Title oluşturulmalı ve CLS müşter
   <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">pai_0100</span><span class="p">(</span> <span class="p">).</span>
 <span class="k">ENDMODULE</span><span class="p">.</span>
 </code></pre></div></div>
-<p>Temel çalıştırma aşağıdaki gibidir.</p>
 
-<p>ZPROGRAM</p>
-<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPORT</span> <span class="n">ZOOALV_TEMPLATE</span><span class="p">.</span>
-
-<span class="k">INCLUDE</span> <span class="n">zooalv_template_top</span><span class="p">.</span>
-<span class="k">include</span> <span class="n">zooalv_template_cls</span><span class="p">.</span>
-
-
-
-<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
-
-  <span class="k">PERFORM</span> <span class="n">GET_DATA</span><span class="p">.</span>
-
-  <span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">GO_ALV</span><span class="p">.</span>
-  <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">set_data</span><span class="p">(</span> <span class="k">REF</span> <span class="o">#</span><span class="p">(</span> <span class="n">gt_mara</span> <span class="p">)</span> <span class="p">).</span>
-  <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">run</span><span class="p">(</span> <span class="p">).</span>
-
-<span class="k">end</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
-
-
-
-<span class="k">FORM</span> <span class="n">GET_DATA</span><span class="p">.</span>
-  <span class="k">SELECT</span> <span class="o">*</span>
-    <span class="k">FROM</span> <span class="n">MARA</span>
-    <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">GT_MARA</span>
-    <span class="k">WHERE</span> <span class="n">MATNR</span> <span class="k">IN</span> <span class="n">S_MATNR</span><span class="p">.</span>
-<span class="k">ENDFORM</span><span class="p">.</span>
-</code></pre></div></div>
 
             </main>
         </div>
