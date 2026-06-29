@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="tr">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Engineer portfolio, SAP ABAP projects, .NET development and technical articles.">
+    <title>Tarık AÇIKGÖZ Personal Website / Portfolio</title>
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+    
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/header-navigator.css">
+    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="stylesheet" href="/assets/css/date.css">
+    <link rel="stylesheet" href="/assets/css/content-navigator.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPK2F45W6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPK2F45W6X');
+</script>
+
+    <body>
+
+        <header class="site-header"
+        style="background-image: url('/images/banner.png');">
+    
+
+
+    <div class="header-main">
+        <img src="/images/logo.png" alt="Logo" class="header-logo">
+        
+        <div class="header-title">
+            <h1>Tarık AÇIKGÖZ</h1>
+            <p>Computer Engineer</p>
+            <p>tarikacikgoz96@gmail.com</p>
+            <div class="social-links">
+                
+                    <a href="https://www.linkedin.com/in/tarikacikgoz1996/">
+                        <img src="/images/icon_linkedin.png"
+                            alt="LinkedIn"
+                            class="icon-logo">
+                    </a>
+                
+                    <a href="https://github.com/tarikacikgoz96">
+                        <img src="/images/icon_github.png"
+                            alt="GitHub"
+                            class="icon-logo">
+                    </a>
+                
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="header-badges">
+                
+                    <img src="/images/badge_tsk.png"
+                        alt="TSK"
+                        class="icon-badge">
+                
+                    <img src="/images/badge_ege.png"
+                        alt="Ege University"
+                        class="icon-badge">
+                
+            </div>
+            <div class="header-words">
+                <p>Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak.</p>
+                <p> M. Kemal ATATÜRK</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</header>
+
+
+
+
+        <div class="header-navigator">
+
+    <button class="menu-toggle">
+    ☰ Menu
+    </button>
+
+    <nav class="header-nav">
+        
+
+        
+
+            <a href="/"
+               class="">
+                Home Page
+            </a>
+
+        
+
+            <a href="/aboutMe/"
+               class="">
+                About Me
+            </a>
+
+        
+
+            <a href="/profile/"
+               class="">
+                Profile
+            </a>
+
+        
+
+            <a href="/projects/"
+               class="">
+                Projects
+            </a>
+
+        
+
+            <a href="/devNotes/"
+               class="">
+                Dev Notes
+            </a>
+
+        
+
+            <a href="/articles/"
+               class="">
+                Articles
+            </a>
+
+        
+    </nav>
+    
+</div>
+
+<script src="/assets/js/header-navigator.js"></script>
+        
+        <div class="page">
+            <main class="main-content">
+                <h1 id="abap-send-email">ABAP Send Email</h1>
+
+<div class="content-dates">
+
+    
+    <span class="content-date">
+        Published: 29.06.2026
+    </span>
+    
+
+    
+    <span class="content-date">
+        Updated: 29.06.2026
+    </span>
+    
+
+</div>
+
+<p>Bir ABAP programı içerisinden email yollamanızı sağlar.</p>
+
+<p>Email içeriği HTML olarak yazılır. İçerik HTML olduğu için içeriği görselleştirme özgürlüğü sunar.</p>
+
+<p>Programdan gönderilen emaillerin gönderim durumu/kuyruğu <strong>SOST</strong> tcode ile kontrol edilir.</p>
+
+<p><strong>Dikkat:</strong> Emailin karşı tarafa başarılı şekilde ulaşması için sisteminizin email gönderim ayarlarının düzgün yapılmış olması gerekmektedir aksi halde SOST den başarısız sonucunu alırsınız.</p>
+
+<p>Örnek gönderim görselleri aşağıdaki gibidir.</p>
+
+<div class="media-container media-center">
+
+    <img alt="ABAP Send Email SOST" src="/devNotes/SAP/ABAPsendEmail_1.png" class="content-media" style="width:75%;" />
+
+    
+
+</div>
+
+<div class="media-container media-center">
+
+    <img alt="ABAP Send Email Content" src="/devNotes/SAP/ABAPsendEmail_2.png" class="content-media" style="width:75%;" />
+
+    
+
+</div>
+
+<p><strong><em>Temel çalıştırma aşağıdaki gibidir;</em></strong></p>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">*&amp;---------------------------------------------------------------------*</span>
+<span class="cm">*&amp; Report ZTEMPLATE_EMAIL</span>
+<span class="cm">*&amp;---------------------------------------------------------------------*</span>
+<span class="cm">*&amp;</span>
+<span class="cm">*&amp;---------------------------------------------------------------------*</span>
+<span class="k">REPORT</span> <span class="n">ztemplate_email</span><span class="p">.</span>
+
+
+<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
+  <span class="k">DATA</span><span class="p">:</span> <span class="n">lt_recievers</span> <span class="k">TYPE</span> <span class="n">soli_tab</span><span class="p">,</span>
+        <span class="n">lv_subject</span>   <span class="k">TYPE</span> <span class="n">char50</span><span class="p">,</span>
+        <span class="n">lt_content</span>   <span class="k">TYPE</span> <span class="n">soli_tab</span><span class="p">,</span>
+        <span class="n">lv_message</span>   <span class="k">TYPE</span> <span class="k">string</span><span class="p">.</span>
+
+  <span class="k">DATA</span><span class="p">:</span> <span class="n">lo_cls</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="n">zcl_template</span><span class="p">.</span>
+
+  <span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">lo_cls</span><span class="p">.</span>
+
+
+
+  <span class="n">lt_recievers</span> <span class="o">=</span> <span class="k">VALUE</span> <span class="o">#</span><span class="p">(</span>
+    <span class="k">BASE</span> <span class="n">lt_recievers</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'mailaddr1@company.com'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'mailaddr2@company.com'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'mailaddr3@company.com'</span> <span class="p">)</span>
+  <span class="p">).</span>
+
+  <span class="n">lv_subject</span> <span class="o">=</span> <span class="s1">'Mail Başlığım: Bu bir Test mailidir.'</span><span class="p">.</span>
+
+  <span class="n">lt_content</span> <span class="o">=</span> <span class="k">VALUE</span> <span class="o">#</span><span class="p">(</span>
+    <span class="k">BASE</span> <span class="n">lt_content</span>
+    <span class="c1">"( line = '&lt;style&gt;p { padding: 5px; text-align: left; }&lt;/style&gt;' )</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'Merhaba,&lt;br/&gt;'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'&lt;br/&gt;'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'SAP ABAP ile test maili gönderilmiştir.&lt;br/&gt;'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'Sizde bu metodu kullanarak gönderebilirsiniz.&lt;br/&gt;'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'&lt;br/&gt;'</span> <span class="p">)</span>
+    <span class="p">(</span> <span class="k">line</span> <span class="o">=</span> <span class="s1">'İyi çalışmalar.'</span> <span class="p">)</span>
+  <span class="p">).</span>
+
+
+
+  <span class="n">lo_cls</span><span class="o">-&gt;</span><span class="n">send_email</span><span class="p">(</span>
+    <span class="k">EXPORTING</span>
+      <span class="n">it_recievers</span> <span class="o">=</span> <span class="n">lt_recievers</span>  <span class="c1">" Mail alıcıları</span>
+      <span class="n">iv_subject</span>   <span class="o">=</span> <span class="n">lv_subject</span>    <span class="c1">" Mail başlığı</span>
+      <span class="n">it_content</span>   <span class="o">=</span> <span class="n">lt_content</span>    <span class="c1">" Mail içeriği HTML</span>
+    <span class="k">IMPORTING</span>
+      <span class="n">ev_message</span>   <span class="o">=</span> <span class="n">lv_message</span>
+  <span class="p">).</span>
+
+  <span class="n">BREAK</span><span class="o">-</span><span class="n">POINT</span><span class="p">.</span>
+
+
+<span class="k">END</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><strong><em>SEND_EMAIL metodu;</em></strong></p>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Method</span> <span class="n">Signature</span><span class="p">:</span>
+<span class="cm">*IT_RECIEVERS   Importing   Type    SOLI_TAB</span>
+<span class="cm">*IV_SUBJECT     Importing   Type    CHAR50</span>
+<span class="cm">*IT_CONTENT     Importing   Type    SOLI_TAB</span>
+<span class="cm">*EV_MESSAGE     Exporting   Type    STRING</span>
+
+  <span class="k">METHOD</span> <span class="n">send_email</span><span class="p">.</span>
+
+
+    <span class="k">DATA</span><span class="p">:</span> <span class="n">ls_mailsubject</span>    <span class="k">TYPE</span> <span class="n">sodocchgi1</span><span class="p">,</span>
+          <span class="n">ls_mailreciever</span>   <span class="k">TYPE</span> <span class="n">somlrec90</span><span class="p">,</span>
+          <span class="n">lt_mailrecievers</span>  <span class="k">TYPE</span> <span class="k">TABLE</span> <span class="k">OF</span> <span class="n">somlrec90</span><span class="p">.</span>
+
+
+    <span class="k">LOOP</span> <span class="k">AT</span> <span class="n">it_recievers</span> <span class="k">ASSIGNING</span> <span class="k">FIELD-SYMBOL</span><span class="p">(</span><span class="o">&lt;</span><span class="n">fs_reciever</span><span class="o">&gt;</span><span class="p">).</span>
+      <span class="k">CLEAR</span> <span class="n">ls_mailreciever</span><span class="p">.</span>
+      <span class="n">ls_mailreciever</span><span class="o">-</span><span class="k">receiver</span>  <span class="o">=</span>  <span class="o">&lt;</span><span class="n">fs_reciever</span><span class="o">&gt;</span><span class="p">.</span>
+      <span class="n">ls_mailreciever</span><span class="o">-</span><span class="n">rec_type</span>  <span class="o">=</span> <span class="s1">'U'</span><span class="p">.</span>
+      <span class="k">APPEND</span> <span class="n">ls_mailreciever</span> <span class="k">TO</span> <span class="n">lt_mailrecievers</span><span class="p">.</span>
+    <span class="k">ENDLOOP</span><span class="p">.</span>
+
+
+    <span class="c1">"ls_mailsubject-obj_name  = 'TEST MAIL'.</span>
+    <span class="n">ls_mailsubject</span><span class="o">-</span><span class="n">obj_langu</span> <span class="o">=</span> <span class="n">sy</span><span class="o">-</span><span class="n">langu</span><span class="p">.</span>
+    <span class="n">ls_mailsubject</span><span class="o">-</span><span class="n">obj_descr</span> <span class="o">=</span> <span class="n">iv_subject</span><span class="p">.</span>
+
+
+
+    <span class="k">CALL</span> <span class="k">FUNCTION</span> <span class="s1">'SO_NEW_DOCUMENT_SEND_API1'</span>
+      <span class="k">EXPORTING</span>
+        <span class="n">document_data</span>              <span class="o">=</span> <span class="n">ls_mailsubject</span>
+        <span class="n">document_type</span>              <span class="o">=</span> <span class="s1">'HTM'</span>
+      <span class="k">TABLES</span>
+        <span class="n">object_content</span>             <span class="o">=</span> <span class="n">it_content</span>
+        <span class="n">receivers</span>                  <span class="o">=</span> <span class="n">lt_mailrecievers</span>
+      <span class="k">EXCEPTIONS</span>
+        <span class="n">too_many_receivers</span>         <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">document_not_sent</span>          <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">document_type_not_exist</span>    <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">operation_no_authorization</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">parameter_error</span>            <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">x_error</span>                    <span class="o">=</span> <span class="mi">6</span>
+        <span class="n">enqueue_error</span>              <span class="o">=</span> <span class="mi">7</span>
+        <span class="k">OTHERS</span>                     <span class="o">=</span> <span class="mi">8</span><span class="p">.</span>
+    <span class="k">IF</span> <span class="n">sy</span><span class="o">-</span><span class="n">subrc</span> <span class="k">EQ</span> <span class="mi">0</span><span class="p">.</span>
+      <span class="k">COMMIT</span> <span class="k">WORK</span><span class="p">.</span>
+      <span class="n">ev_message</span> <span class="o">=</span> <span class="s1">'OK'</span><span class="p">.</span>
+    <span class="k">ELSE</span><span class="p">.</span>
+      <span class="n">ev_message</span> <span class="o">=</span> <span class="s1">'NOK'</span><span class="p">.</span>
+    <span class="k">ENDIF</span><span class="p">.</span>
+
+
+  <span class="k">ENDMETHOD</span><span class="p">.</span>
+</code></pre></div></div>
+
+            </main>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<script src="/assets/js/abap.js"></script>
+
+<script src="/assets/js/codeblock.js"></script>
+        <footer class="site-footer">
+
+    <p> © 2026 Tarık AÇIKGÖZ Personal Website / Portfolio</p>
+
+</footer>
+
+    </body>
+</html>
