@@ -157,7 +157,7 @@
 
     
     <span class="content-date">
-        Updated: 29.06.2026
+        Updated: 08.07.2026
     </span>
     
 
@@ -167,23 +167,14 @@
 
 <p>Dönen JSON response (string) sonucunun işlenmesine başka bir başlıkta değinilecektir.</p>
 
-<p>Kodda “for debug” olan kısımlar ile bağlantı problemi yaşarsanız, daha detaylı bilgi alabilirsiniz.</p>
+<p>Kodda bağlantı problemi yaşarsanız, “for debug” olan kısımlar ile daha detaylı bilgi alabilirsiniz.</p>
 
 <p>İsterseniz tek bir sorgu ihtiyacı için kullanın, isterseniz size gelen RESTful API paketinin tamamını bu metodu kullanarak implemente edin.</p>
 
-<p><strong>Dikkat:</strong> Eğer sorgu sonucunda bağlantı hatası vb. beklenmeyen sonuçlar alıyorsanız, lütfen <strong>STRUST</strong> tcode kullanarak ilgili REST API servis sağlayıcısının sertifikasını yüklemeyi unutmayınız. Size sorgudan dönen sonuçta, doğrudan sertifika hatası demese de SAP ortamında API sorgularında yaşanan bağlantı hatalarının büyük çoğunluğu sertifika yüklenmemesinden kaynaklıdır.</p>
+<p><strong>Dikkat:</strong> Eğer sorgu sonucunda bağlantı hatası vb. beklenmeyen sonuçlar alıyorsanız, lütfen <strong>STRUST</strong> tcode kullanarak, ilgili REST API servis sağlayıcısının sertifikasını yüklemeyi unutmayınız. Size sorgudan dönen sonuçta, doğrudan sertifika hatası demese de SAP ortamında API sorgularında yaşanan bağlantı hatalarının büyük çoğunluğu sertifika yüklenmemesinden kaynaklıdır.</p>
 
 <p><strong><em>Temel çalıştırma aşağıdaki gibidir;</em></strong></p>
-<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">*&amp;---------------------------------------------------------------------*</span>
-<span class="cm">*&amp; Report ZTEMPLATE_RESTAPI</span>
-<span class="cm">*&amp;---------------------------------------------------------------------*</span>
-<span class="cm">*&amp;</span>
-<span class="cm">*&amp;---------------------------------------------------------------------*</span>
-<span class="k">REPORT</span> <span class="n">ZTEMPLATE_RESTAPI</span><span class="p">.</span>
-
-
-<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
-
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPORT</span> <span class="n">ZTEMPLATE_RESTAPI</span><span class="p">.</span>
 
   <span class="k">data</span><span class="p">:</span> <span class="n">lv_method</span> <span class="k">TYPE</span> <span class="k">string</span><span class="p">,</span>
         <span class="n">lv_url</span> <span class="k">TYPE</span> <span class="k">string</span><span class="p">,</span>
@@ -198,10 +189,11 @@
 
   <span class="k">DATA</span><span class="p">:</span> <span class="n">lo_cls</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="n">zcl_template</span><span class="p">.</span>
 
+
+<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
+
   <span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">lo_cls</span><span class="p">.</span>
-
-
-
 
 
   <span class="n">lv_method</span> <span class="o">=</span> <span class="s1">'POST'</span><span class="p">.</span>
@@ -221,19 +213,16 @@
 
 
 
-
-
   <span class="n">lo_cls</span><span class="o">-&gt;</span><span class="n">send_http_request</span><span class="p">(</span>
     <span class="k">EXPORTING</span>
       <span class="n">iv_method</span>        <span class="o">=</span> <span class="n">lv_method</span>
       <span class="n">iv_url</span>           <span class="o">=</span> <span class="n">lv_url</span>
       <span class="n">it_headers</span>       <span class="o">=</span> <span class="n">lt_headers</span>
       <span class="n">iv_body</span>          <span class="o">=</span> <span class="n">lv_body</span>
-<span class="cm">*      iv_proxy_host    =</span>
-<span class="cm">*      iv_proxy_service =</span>
-<span class="cm">*      iv_basic_auth    =</span>
-<span class="cm">*      iv_username      =</span>
-<span class="cm">*      iv_password      =</span>
+<span class="cm">*      iv_proxy_host     =</span>
+<span class="cm">*      iv_proxy_service  =</span>
+<span class="cm">*      iv_bauth_username =</span>
+<span class="cm">*      iv_bauth_password =</span>
     <span class="k">IMPORTING</span>
       <span class="n">ev_response</span>      <span class="o">=</span> <span class="n">lv_response</span>
       <span class="n">ev_http_status</span>   <span class="o">=</span> <span class="n">lv_http_status</span>
@@ -243,7 +232,6 @@
 
 
   <span class="n">BREAK</span><span class="o">-</span><span class="n">POINT</span><span class="p">.</span>
-
 
 
 <span class="k">END</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
@@ -257,9 +245,8 @@
 <span class="cm">*IV_BODY        Importing	Type	STRING</span>
 <span class="cm">*IV_PROXY_HOST  Importing	Type	STRING      (optinal)</span>
 <span class="cm">*IV_PROXY_SERVICE Importing	Type	STRING      (optinal)</span>
-<span class="cm">*IV_BASIC_AUTH	Importing	Type	FLAG        (optinal)</span>
-<span class="cm">*IV_USERNAME	Importing	Type	STRING      (optinal)</span>
-<span class="cm">*IV_PASSWORD	Importing	Type	STRING      (optinal)</span>
+<span class="cm">*IV_BAUTH_USERNAME	Importing	Type	STRING      (optinal)</span>
+<span class="cm">*IV_BAUTH_PASSWORD	Importing	Type	STRING      (optinal)</span>
 <span class="cm">*EV_RESPONSE    Exporting	Type	STRING      (optinal)</span>
 <span class="cm">*EV_HTTP_STATUS	Exporting	Type	STRING</span>
 <span class="cm">*EV_HTTP_REASON	Exporting	Type	STRING</span>
@@ -301,13 +288,13 @@
         <span class="c1">"...</span>
         <span class="c1">"set headers------------</span>
 
-        <span class="k">IF</span> <span class="n">iv_basic_auth</span> <span class="k">eq</span> <span class="s1">'X'</span><span class="p">.</span>
+        <span class="k">IF</span> <span class="n">iv_bauth_username</span> <span class="k">is</span> <span class="k">SUPPLIED</span><span class="p">.</span>
           <span class="n">lo_http_client</span><span class="o">-&gt;</span><span class="n">AUTHENTICATE</span><span class="p">(</span>
             <span class="k">exporting</span>
 <span class="cm">*              PROXY_AUTHENTICATION = ' '    " Proxy Logon (= 'X')</span>
 <span class="cm">*              CLIENT               =     " R/3 System, client number from logon</span>
-              <span class="n">USERNAME</span>             <span class="o">=</span>  <span class="n">IV_USERNAME</span>   <span class="c1">" ABAP System, User Logon Name</span>
-              <span class="n">PASSWORD</span>             <span class="o">=</span>  <span class="n">IV_PASSWORD</span>  <span class="c1">" Logon ID</span>
+              <span class="n">USERNAME</span>             <span class="o">=</span>  <span class="n">IV_BAUTH_USERNAME</span>   <span class="c1">" ABAP System, User Logon Name</span>
+              <span class="n">PASSWORD</span>             <span class="o">=</span>  <span class="n">IV_BAUTH_PASSWORD</span>  <span class="c1">" Logon ID</span>
 <span class="cm">*              LANGUAGE             =     " SAP System, Current Language</span>
           <span class="p">).</span>
         <span class="k">ENDIF</span><span class="p">.</span>

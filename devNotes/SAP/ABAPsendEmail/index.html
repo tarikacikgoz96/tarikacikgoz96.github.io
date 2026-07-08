@@ -157,7 +157,7 @@
 
     
     <span class="content-date">
-        Updated: 29.06.2026
+        Updated: 08.07.2026
     </span>
     
 
@@ -190,15 +190,7 @@
 </div>
 
 <p><strong><em>Temel çalıştırma aşağıdaki gibidir;</em></strong></p>
-<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">*&amp;---------------------------------------------------------------------*</span>
-<span class="cm">*&amp; Report ZTEMPLATE_EMAIL</span>
-<span class="cm">*&amp;---------------------------------------------------------------------*</span>
-<span class="cm">*&amp;</span>
-<span class="cm">*&amp;---------------------------------------------------------------------*</span>
-<span class="k">REPORT</span> <span class="n">ztemplate_email</span><span class="p">.</span>
-
-
-<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPORT</span> <span class="n">ztemplate_email</span><span class="p">.</span>
 
   <span class="k">DATA</span><span class="p">:</span> <span class="n">lt_recievers</span> <span class="k">TYPE</span> <span class="n">soli_tab</span><span class="p">,</span>
         <span class="n">lv_subject</span>   <span class="k">TYPE</span> <span class="n">char50</span><span class="p">,</span>
@@ -207,9 +199,9 @@
 
   <span class="k">DATA</span><span class="p">:</span> <span class="n">lo_cls</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="n">zcl_template</span><span class="p">.</span>
 
+<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
   <span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">lo_cls</span><span class="p">.</span>
-
-
 
   <span class="n">lt_recievers</span> <span class="o">=</span> <span class="k">VALUE</span> <span class="o">#</span><span class="p">(</span>
     <span class="k">BASE</span> <span class="n">lt_recievers</span>
@@ -249,7 +241,7 @@
 </code></pre></div></div>
 
 <p><strong><em>SEND_EMAIL metodu;</em></strong></p>
-<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Method</span> <span class="n">Signature</span><span class="p">:</span>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">*Method Signature:</span>
 <span class="cm">*IT_RECIEVERS   Importing   Type    SOLI_TAB</span>
 <span class="cm">*IV_SUBJECT     Importing   Type    CHAR50</span>
 <span class="cm">*IT_CONTENT     Importing   Type    SOLI_TAB</span>
@@ -271,7 +263,7 @@
     <span class="k">ENDLOOP</span><span class="p">.</span>
 
 
-    <span class="c1">"ls_mailsubject-obj_name  = 'TEST MAIL'.</span>
+
     <span class="n">ls_mailsubject</span><span class="o">-</span><span class="n">obj_langu</span> <span class="o">=</span> <span class="n">sy</span><span class="o">-</span><span class="n">langu</span><span class="p">.</span>
     <span class="n">ls_mailsubject</span><span class="o">-</span><span class="n">obj_descr</span> <span class="o">=</span> <span class="n">iv_subject</span><span class="p">.</span>
 

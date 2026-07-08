@@ -157,7 +157,7 @@
 
     
     <span class="content-date">
-        Updated: 22.06.2026
+        Updated: 08.07.2026
     </span>
     
 
@@ -174,12 +174,13 @@
 <p><strong><em>OO ALV için temel şablondur.</em></strong></p>
 
 <p>Bir SAP raporunda sadece bir ALV ekrana basılacak ise tercih edilebilir.<br />
-Veri çekme işleri dışarıda yapılır, (FORM, Metot, vb.) içine herhangi bir tipte itab gönderilir ve ekrana ALV basılmış olur.<br />
-Kullanımdan önce</p>
+Veri çekme işleri dışarıda yapılır, (FORM, Metot, vb.) içine herhangi bir tipte itab gönderilir ve ekrana ALV basılmış olur.</p>
+
+<p>Kullanımdan önce;</p>
 <ul>
   <li>Screen</li>
   <li>GUI Status</li>
-  <li>GUI Title oluşturulmalı</li>
+  <li>GUI Title oluşturulmalı,</li>
   <li>LCL_ALV müşteri isteğine/rapora göre özelleştirilmelidir.</li>
 </ul>
 
@@ -194,11 +195,20 @@ Kullanımdan önce</p>
 
 <p><strong><em>Temel çalıştırma aşağıdaki gibidir;</em></strong></p>
 
-<p>ZPROGRAM</p>
+<p>ZTEMPLATE_OOALV</p>
 <div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPORT</span> <span class="n">ZTEMPLATE_OOALV</span><span class="p">.</span>
 
-<span class="k">INCLUDE</span> <span class="n">ztemplate_ooalv_top</span><span class="p">.</span>
-<span class="k">include</span> <span class="n">ztemplate_ooalv_cls</span><span class="p">.</span>
+<span class="c1">"top---</span>
+<span class="k">TABLES</span><span class="p">:</span> <span class="n">MARA</span><span class="p">.</span>
+
+<span class="k">DATA</span> <span class="n">GT_MARA</span> <span class="k">TYPE</span> <span class="k">TABLE</span> <span class="k">OF</span> <span class="n">MARA</span><span class="p">.</span>
+
+<span class="k">SELECT</span><span class="o">-</span><span class="k">OPTIONS</span><span class="p">:</span>
+ <span class="n">s_MATNR</span> <span class="k">FOR</span> <span class="n">MARA</span><span class="o">-</span><span class="n">MATNR</span><span class="p">.</span>
+<span class="c1">"top---</span>
+
+
+<span class="k">INCLUDE</span> <span class="n">ZTEMPLATE_OOALV_CLS</span><span class="p">.</span>
 
 
 
@@ -207,7 +217,8 @@ Kullanımdan önce</p>
   <span class="k">PERFORM</span> <span class="n">GET_DATA</span><span class="p">.</span>
 
   <span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">GO_ALV</span><span class="p">.</span>
-  <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">set_data</span><span class="p">(</span> <span class="k">REF</span> <span class="o">#</span><span class="p">(</span> <span class="n">gt_mara</span> <span class="p">)</span> <span class="p">).</span>
+
+  <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">set_data</span><span class="p">(</span> <span class="k">CHANGING</span> <span class="n">it_itab</span> <span class="o">=</span> <span class="n">gt_mara</span> <span class="p">).</span>
   <span class="n">go_alv</span><span class="o">-&gt;</span><span class="n">run</span><span class="p">(</span> <span class="p">).</span>
 
 <span class="k">end</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
@@ -224,7 +235,7 @@ Kullanımdan önce</p>
 
 <p><strong><em>LCL_ALV OO ALV Builder kodu;</em></strong></p>
 
-<p>ZPROGRAM_CLS</p>
+<p>ZTEMPLATE_OOALV_CLS</p>
 <div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="n">lcl_alv</span> <span class="k">DEFINITION</span> <span class="k">DEFERRED</span><span class="p">.</span>
 <span class="k">DATA</span> <span class="n">go_alv</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="n">lcl_alv</span><span class="p">.</span>
 
@@ -236,7 +247,7 @@ Kullanımdan önce</p>
  <span class="k">PUBLIC</span> <span class="k">SECTION</span><span class="p">.</span>
   <span class="k">METHODS</span><span class="p">:</span>
    <span class="n">constructor</span><span class="p">,</span>
-   <span class="n">set_data</span> <span class="k">IMPORTING</span> <span class="n">ir_itab</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="k">data</span><span class="p">,</span>
+   <span class="n">set_data</span> <span class="k">CHANGING</span> <span class="n">it_itab</span> <span class="k">TYPE</span> <span class="k">ANY</span> <span class="k">TABLE</span><span class="p">,</span>
    <span class="n">refresh_alv</span> <span class="k">IMPORTING</span>
     <span class="n">iv_keep_row_select</span> <span class="k">TYPE</span> <span class="n">abap_bool</span> <span class="k">DEFAULT</span> <span class="n">abap_false</span>
     <span class="n">iv_keep_cell_select</span> <span class="k">TYPE</span> <span class="n">abap_bool</span> <span class="k">DEFAULT</span> <span class="n">abap_false</span><span class="p">,</span>
@@ -291,9 +302,10 @@ Kullanımdan önce</p>
  <span class="k">PRIVATE</span> <span class="k">SECTION</span><span class="p">.</span>
 
   <span class="k">DATA</span> <span class="n">gr_itab</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="k">data</span><span class="p">.</span>
+<span class="c1">"itaba metotlarda bu şekilde erişilir--</span>
 <span class="cm">*  FIELD-SYMBOLS: &lt;gt_itab&gt; TYPE STANDARD TABLE.</span>
 <span class="cm">*  ASSIGN gr_itab-&gt;* TO &lt;gt_itab&gt;.</span>
-
+<span class="c1">"-------------------------------------------------</span>
    <span class="k">data</span><span class="p">:</span> <span class="n">gs_fcat</span> <span class="k">TYPE</span> <span class="n">lvc_s_fcat</span><span class="p">,</span>
          <span class="n">gt_fcat</span> <span class="k">TYPE</span> <span class="n">lvc_t_fcat</span><span class="p">,</span>
          <span class="n">gs_layo</span> <span class="k">TYPE</span> <span class="n">lvc_s_layo</span><span class="p">.</span>
@@ -326,16 +338,9 @@ Kullanımdan önce</p>
 
 
   <span class="k">METHOD</span> <span class="n">set_data</span><span class="p">.</span>
-    <span class="c1">"böyle çağırman gereklidir.</span>
-    <span class="c1">"-------------</span>
-<span class="cm">*    DATA lr_itab TYPE REF TO data.</span>
-<span class="cm">*    GET REFERENCE OF gt_mara INTO lr_itab.</span>
-<span class="cm">*    set_data( lr_itab ).</span>
-    <span class="c1">"yada</span>
-    <span class="c1">"-------------</span>
-<span class="cm">*    set_data( REF #( gt_mara ) ).</span>
-    <span class="c1">"-------------</span>
-    <span class="n">gr_itab</span> <span class="o">=</span> <span class="n">ir_itab</span><span class="p">.</span>
+
+    <span class="k">GET</span> <span class="k">REFERENCE</span> <span class="k">OF</span> <span class="n">it_itab</span> <span class="k">INTO</span> <span class="n">gr_itab</span><span class="p">.</span>
+
   <span class="k">endmethod</span><span class="p">.</span>
 
 
@@ -425,7 +430,7 @@ Kullanımdan önce</p>
 
 
   <span class="k">METHOD</span> <span class="n">set_alv_handlers</span><span class="p">.</span>
-<span class="cm">*    SET HANDLER me-&gt;handle_double_click          FOR go_grid.</span>
+    <span class="k">SET</span> <span class="k">HANDLER</span> <span class="n">me</span><span class="o">-&gt;</span><span class="n">handle_double_click</span>          <span class="k">FOR</span> <span class="n">go_grid</span><span class="p">.</span>
 <span class="cm">*    SET HANDLER me-&gt;handle_hotspot_click         FOR go_grid.</span>
 <span class="cm">*    SET HANDLER me-&gt;handle_toolbar               FOR go_grid.</span>
 <span class="cm">*    SET HANDLER me-&gt;handle_user_command          FOR go_grid.</span>
@@ -436,7 +441,7 @@ Kullanımdan önce</p>
   <span class="k">ENDMETHOD</span><span class="p">.</span>
 
   <span class="k">METHOD</span> <span class="n">call_alv</span><span class="p">.</span>
-    <span class="k">FIELD</span><span class="o">-</span><span class="n">SYMBOLS</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span> <span class="k">TYPE</span> <span class="k">STANDARD</span> <span class="k">TABLE</span><span class="p">.</span>
+    <span class="k">FIELD</span><span class="o">-</span><span class="n">SYMBOLS</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span> <span class="k">TYPE</span> <span class="k">ANY</span> <span class="k">TABLE</span><span class="p">.</span>
     <span class="k">ASSIGN</span> <span class="n">gr_itab</span><span class="o">-&gt;*</span> <span class="k">TO</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span><span class="p">.</span>
 
     <span class="n">go_grid</span><span class="o">-&gt;</span><span class="n">set_table_for_first_display</span><span class="p">(</span>
@@ -511,7 +516,7 @@ Kullanımdan önce</p>
           <span class="n">lt_dfies</span>    <span class="k">TYPE</span> <span class="n">ddfields</span><span class="p">,</span>
           <span class="n">ls_dfies</span>    <span class="k">TYPE</span> <span class="n">dfies</span><span class="p">.</span>
 
-    <span class="k">FIELD</span><span class="o">-</span><span class="n">SYMBOLS</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span> <span class="k">TYPE</span> <span class="k">STANDARD</span> <span class="k">TABLE</span><span class="p">.</span>
+    <span class="k">FIELD</span><span class="o">-</span><span class="n">SYMBOLS</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span> <span class="k">TYPE</span> <span class="k">ANY</span> <span class="k">TABLE</span><span class="p">.</span>
     <span class="k">ASSIGN</span> <span class="n">gr_itab</span><span class="o">-&gt;*</span> <span class="k">TO</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span><span class="p">.</span>
     <span class="k">CREATE</span> <span class="k">DATA</span> <span class="n">lv_data</span> <span class="k">LIKE</span> <span class="k">LINE</span> <span class="k">OF</span> <span class="o">&lt;</span><span class="n">gt_itab</span><span class="o">&gt;</span><span class="p">.</span>
     <span class="n">ls_tabdescr</span> <span class="o">?=</span> <span class="n">cl_abap_structdescr</span><span class="o">=&gt;</span><span class="n">describe_by_data_ref</span><span class="p">(</span> <span class="n">lv_data</span> <span class="p">).</span>
@@ -570,12 +575,12 @@ Kullanımdan önce</p>
   <span class="k">ENDMETHOD</span><span class="p">.</span>
 
   <span class="k">METHOD</span> <span class="n">handle_user_command</span><span class="p">.</span>
-  <span class="k">CASE</span> <span class="n">e_ucomm</span><span class="p">.</span>
+    <span class="k">CASE</span> <span class="n">e_ucomm</span><span class="p">.</span>
 
-    <span class="k">WHEN</span> <span class="s1">'ZBTN'</span><span class="p">.</span>
-      <span class="k">MESSAGE</span> <span class="s1">'Toolbar Button'</span> <span class="k">TYPE</span> <span class="s1">'I'</span><span class="p">.</span>
+      <span class="k">WHEN</span> <span class="s1">'ZBTN'</span><span class="p">.</span>
+        <span class="k">MESSAGE</span> <span class="s1">'Toolbar Button'</span> <span class="k">TYPE</span> <span class="s1">'I'</span><span class="p">.</span>
 
-  <span class="k">ENDCASE</span><span class="p">.</span>
+    <span class="k">ENDCASE</span><span class="p">.</span>
   <span class="k">ENDMETHOD</span><span class="p">.</span>
 
   <span class="k">METHOD</span> <span class="n">handle_data_changed</span><span class="p">.</span>

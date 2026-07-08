@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Engineer portfolio, SAP ABAP projects, .NET development and technical articles.">
+    <title>Tarık AÇIKGÖZ Personal Website / Portfolio</title>
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+    
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/header-navigator.css">
+    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="stylesheet" href="/assets/css/date.css">
+    <link rel="stylesheet" href="/assets/css/content-navigator.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPK2F45W6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPK2F45W6X');
+</script>
+
+    <body>
+
+        <header class="site-header"
+        style="background-image: url('/images/banner.png');">
+    
+
+
+    <div class="header-main">
+        <img src="/images/logo.png" alt="Logo" class="header-logo">
+        
+        <div class="header-title">
+            <h1>Tarık AÇIKGÖZ</h1>
+            <p>Computer Engineer</p>
+            <p>tarikacikgoz96@gmail.com</p>
+            <div class="social-links">
+                
+                    <a href="https://www.linkedin.com/in/tarikacikgoz1996/">
+                        <img src="/images/icon_linkedin.png"
+                            alt="LinkedIn"
+                            class="icon-logo">
+                    </a>
+                
+                    <a href="https://github.com/tarikacikgoz96">
+                        <img src="/images/icon_github.png"
+                            alt="GitHub"
+                            class="icon-logo">
+                    </a>
+                
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="header-badges">
+                
+                    <img src="/images/badge_tsk.png"
+                        alt="TSK"
+                        class="icon-badge">
+                
+                    <img src="/images/badge_ege.png"
+                        alt="Ege University"
+                        class="icon-badge">
+                
+            </div>
+            <div class="header-words">
+                <p>Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak.</p>
+                <p> M. Kemal ATATÜRK</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</header>
+
+
+
+
+        <div class="header-navigator">
+
+    <button class="menu-toggle">
+    ☰ Menu
+    </button>
+
+    <nav class="header-nav">
+        
+
+        
+
+            <a href="/"
+               class="">
+                Home Page
+            </a>
+
+        
+
+            <a href="/aboutMe/"
+               class="">
+                About Me
+            </a>
+
+        
+
+            <a href="/profile/"
+               class="">
+                Profile
+            </a>
+
+        
+
+            <a href="/projects/"
+               class="">
+                Projects
+            </a>
+
+        
+
+            <a href="/devNotes/"
+               class="">
+                Dev Notes
+            </a>
+
+        
+
+            <a href="/articles/"
+               class="">
+                Articles
+            </a>
+
+        
+    </nav>
+    
+</div>
+
+<script src="/assets/js/header-navigator.js"></script>
+        
+        <div class="page">
+            <main class="main-content">
+                <h1 id="abap-itab-to-excel-background-not-ole">ABAP Itab to Excel (Background, Not OLE)</h1>
+
+<div class="content-dates">
+
+    
+    <span class="content-date">
+        Published: 08.07.2026
+    </span>
+    
+
+    
+    <span class="content-date">
+        Updated: 08.07.2026
+    </span>
+    
+
+</div>
+
+<div class="media-container media-center">
+
+    <img alt="ABAP Itab to Excel" src="/devNotes/SAP/ABAPexcelOut_1.png" class="content-media" style="width:75%;" />
+
+    
+
+</div>
+
+<p>Bir abap programındaki itab’ı Excel dosyasına (.xlsx) OLE kullanmadan ve arkaplanda aktarımını sağlar.</p>
+
+<p>Bu metot SAP’ın ALV toolbarındaki Excel dönüşüm işlemleri (SAP’ın orjinal kodları) debug edilerek oluşturulmuştur. Tam verimle çalışmaktadır. Arka planda dönüştürüp, OLE’deki gibi Excel’in bilgisayarda açılmasına gerek duymamaktadır.</p>
+
+<p><strong>Uygulama:</strong></p>
+<ul>
+  <li>Itab’ı ve dosya yolunu metoda verin (C:\Users\UserName\Desktop\export.xlsx)</li>
+  <li>Sütun adları seçeneklerini seçin (itab fnames, data element names, custom colnames, etc.)</li>
+  <li>Çalıştırın.</li>
+</ul>
+
+<p>“Excel to Itab” için buraya tıklayınız;</p>
+
+<p><strong><em>Temel çalıştırma aşağıdaki gibidir;</em></strong></p>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPORT</span> <span class="n">ZTEMPLATE_XLSX_OUT</span><span class="p">.</span>
+
+<span class="k">TABLES</span><span class="p">:</span> <span class="n">mara</span><span class="p">.</span>
+
+<span class="k">DATA</span><span class="p">:</span> <span class="n">lo_cls</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="n">zcl_template</span><span class="p">,</span>
+      <span class="n">lv_message</span> <span class="k">TYPE</span> <span class="k">string</span><span class="p">,</span>
+      <span class="n">gt_mara</span> <span class="k">TYPE</span> <span class="k">TABLE</span> <span class="k">OF</span> <span class="n">MARA</span><span class="p">.</span> <span class="c1">"itab</span>
+
+<span class="k">SELECT</span><span class="o">-</span><span class="k">OPTIONS</span><span class="p">:</span> <span class="n">s_MATNR</span> <span class="k">FOR</span> <span class="n">MARA</span><span class="o">-</span><span class="n">MATNR</span><span class="p">.</span>
+<span class="k">PARAMETERS</span><span class="p">:</span> <span class="n">p_path</span> <span class="k">TYPE</span> <span class="n">char260</span><span class="p">.</span>
+<span class="c1">"windows path uzunluğu maksimium 260 dır.</span>
+
+<span class="n">START</span><span class="o">-</span><span class="k">OF</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
+
+<span class="k">CREATE</span> <span class="k">OBJECT</span> <span class="n">lo_cls</span><span class="p">.</span>
+
+<span class="k">PERFORM</span> <span class="n">get_data</span><span class="p">.</span>
+
+<span class="n">lo_cls</span><span class="o">-&gt;</span><span class="n">itab_to_excel</span><span class="p">(</span>
+  <span class="k">EXPORTING</span>
+    <span class="n">iv_path</span>            <span class="o">=</span> <span class="n">p_path</span>
+<span class="cm">*    iv_colname_type    = 'F'    " D: Data element, F: Field name</span>
+<span class="cm">*    iv_add_fname       = 'X'    " Sütun adları sonuna fname ekle (D yada Custom ise)</span>
+<span class="cm">*    iv_fname_seperator = '-'</span>
+<span class="cm">*    it_custom_colnames =     " if suplied direkt custom yap</span>
+<span class="cm">*    it_hide_columns    =     " No send to XLSX this columns</span>
+  <span class="k">IMPORTING</span>
+    <span class="n">ev_message</span>         <span class="o">=</span> <span class="n">lv_message</span>
+  <span class="k">CHANGING</span>
+    <span class="n">it_itab</span>            <span class="o">=</span> <span class="n">gt_mara</span>
+<span class="p">).</span>
+
+<span class="k">MESSAGE</span> <span class="n">lv_message</span> <span class="k">TYPE</span> <span class="s1">'S'</span><span class="p">.</span>
+
+<span class="k">end</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="k">SELECTION</span><span class="p">.</span>
+
+<span class="k">FORM</span> <span class="n">GET_DATA</span><span class="p">.</span>
+  <span class="k">SELECT</span> <span class="o">*</span>
+    <span class="k">FROM</span> <span class="n">MARA</span>
+    <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">GT_MARA</span>
+    <span class="k">WHERE</span> <span class="n">MATNR</span> <span class="k">IN</span> <span class="n">S_MATNR</span><span class="p">.</span>
+<span class="k">ENDFORM</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><strong><em>ITAB_TO_EXCEL metodu;</em></strong></p>
+<div class="language-abap highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">*Method Signature:</span>
+<span class="cm">*IV_PATH            TYPE CHAR260	</span>
+<span class="cm">*IV_COLNAME_TYPE    TYPE CHAR1  DEFAULT 'F'	D: Data element, F: Field name</span>
+<span class="cm">*IV_ADD_FNAME       TYPE FLAG   DEFAULT 'X'	Sütun adları sonuna fname ekle (D yada Custom ise)</span>
+<span class="cm">*IV_FNAME_SEPERATOR TYPE CHAR1  DEFAULT '-'	</span>
+<span class="cm">*IT_CUSTOM_COLNAMES TYPE WDY_KEY_VALUE_LIST OPTIONAL	if suplied direkt custom yap</span>
+<span class="cm">*IT_HIDE_COLUMNS    TYPE SOLI_TAB OPTIONAL	No send to XLSX this columns</span>
+<span class="cm">*EV_MESSAGE         TYPE STRING	</span>
+<span class="cm">*IT_ITAB            TYPE TABLE	</span>
+
+  <span class="k">method</span> <span class="n">ITAB_TO_EXCEL</span><span class="p">.</span>
+
+    <span class="n">ev_message</span> <span class="o">=</span> <span class="s1">'OK'</span><span class="p">.</span>
+    <span class="k">data</span><span class="p">:</span> <span class="n">lv_xstring</span>      <span class="k">TYPE</span> <span class="kt">xstring</span><span class="p">,</span>
+          <span class="n">lv_xml_stream</span>   <span class="k">TYPE</span> <span class="n">XML_RAWDATA</span><span class="p">,</span>
+          <span class="n">lv_length</span>       <span class="k">type</span> <span class="k">i</span><span class="p">,</span>
+          <span class="n">lv_colname_type</span> <span class="k">TYPE</span> <span class="n">char1</span><span class="p">,</span>
+          <span class="n">ls_ccolname</span> <span class="k">TYPE</span> <span class="n">wdy_key_value</span><span class="p">,</span>
+          <span class="n">lr_itab</span> <span class="k">TYPE</span> <span class="k">REF</span> <span class="k">TO</span> <span class="k">data</span><span class="p">.</span>
+    <span class="k">TRY</span><span class="p">.</span>
+        <span class="n">cl_salv_table</span><span class="o">=&gt;</span><span class="n">factory</span><span class="p">(</span>
+          <span class="k">IMPORTING</span> <span class="n">r_salv_table</span> <span class="o">=</span> <span class="k">DATA</span><span class="p">(</span><span class="n">lo_table</span><span class="p">)</span>
+          <span class="k">CHANGING</span>  <span class="n">t_table</span>      <span class="o">=</span> <span class="n">it_itab</span> <span class="p">).</span>
+
+        <span class="k">DATA</span><span class="p">(</span><span class="n">lt_fcat</span><span class="p">)</span> <span class="o">=</span>
+          <span class="n">cl_salv_controller_metadata</span><span class="o">=&gt;</span><span class="n">get_lvc_fieldcatalog</span><span class="p">(</span>
+            <span class="n">r_columns</span>      <span class="o">=</span> <span class="n">lo_table</span><span class="o">-&gt;</span><span class="n">get_columns</span><span class="p">(</span> <span class="p">)</span>
+            <span class="n">r_aggregations</span> <span class="o">=</span> <span class="n">lo_table</span><span class="o">-&gt;</span><span class="n">get_aggregations</span><span class="p">(</span> <span class="p">)</span> <span class="p">).</span>
+
+        <span class="k">delete</span> <span class="n">lt_fcat</span> <span class="k">WHERE</span> <span class="n">fieldname</span> <span class="k">eq</span> <span class="s1">'MANDT'</span><span class="p">.</span>
+        <span class="c1">"--------</span>
+        <span class="c1">"hide columns</span>
+        <span class="k">LOOP</span> <span class="k">AT</span> <span class="n">it_hide_columns</span> <span class="k">ASSIGNING</span> <span class="k">FIELD-SYMBOL</span><span class="p">(</span><span class="o">&lt;</span><span class="n">fs_hide</span><span class="o">&gt;</span><span class="p">).</span>
+          <span class="k">delete</span> <span class="n">lt_fcat</span> <span class="k">where</span> <span class="n">fieldname</span> <span class="k">eq</span> <span class="o">&lt;</span><span class="n">fs_hide</span><span class="o">&gt;-</span><span class="k">line</span><span class="p">.</span>
+        <span class="k">ENDLOOP</span><span class="p">.</span>
+        <span class="c1">"--------</span>
+        <span class="c1">"colnames</span>
+        <span class="k">FIELD</span><span class="o">-</span><span class="n">SYMBOLS</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;</span> <span class="k">like</span> <span class="k">LINE</span> <span class="k">OF</span> <span class="n">lt_fcat</span><span class="p">.</span>
+        <span class="n">lv_colname_type</span> <span class="o">=</span> <span class="n">iv_colname_type</span><span class="p">.</span>
+        <span class="k">IF</span> <span class="n">it_custom_colnames</span> <span class="k">is</span> <span class="k">SUPPLIED</span><span class="p">.</span>
+          <span class="n">lv_colname_type</span> <span class="o">=</span> <span class="s1">'C'</span><span class="p">.</span>
+        <span class="k">ENDIF</span><span class="p">.</span>
+        <span class="k">CASE</span> <span class="n">lv_colname_type</span><span class="p">.</span>
+          <span class="k">WHEN</span> <span class="s1">'C'</span><span class="p">.</span><span class="c1">"custom</span>
+            <span class="k">LOOP</span> <span class="k">AT</span> <span class="n">lt_fcat</span> <span class="k">ASSIGNING</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;</span><span class="p">.</span>
+              <span class="k">clear</span> <span class="n">ls_ccolname</span><span class="p">.</span>
+              <span class="k">READ</span> <span class="k">TABLE</span> <span class="n">it_custom_colnames</span> <span class="k">INTO</span> <span class="n">ls_ccolname</span>
+              <span class="k">WITH</span> <span class="k">key</span> <span class="k">key</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">fieldname</span><span class="p">.</span>
+              <span class="k">IF</span> <span class="n">sy</span><span class="o">-</span><span class="n">subrc</span> <span class="k">eq</span> <span class="mi">0</span><span class="p">.</span>
+                <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">reptext</span> <span class="o">=</span> <span class="n">ls_ccolname</span><span class="o">-</span><span class="k">value</span><span class="p">.</span>
+              <span class="k">ENDIF</span><span class="p">.</span>
+            <span class="k">ENDLOOP</span><span class="p">.</span>
+          <span class="k">WHEN</span> <span class="s1">'D'</span><span class="p">.</span><span class="c1">"data element</span>
+            <span class="c1">"continue...</span>
+          <span class="k">WHEN</span> <span class="s1">'F'</span><span class="p">.</span><span class="c1">"field name</span>
+            <span class="k">LOOP</span> <span class="k">AT</span> <span class="n">lt_fcat</span> <span class="k">ASSIGNING</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;</span><span class="p">.</span>
+              <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">reptext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">fieldname</span><span class="p">.</span>
+            <span class="k">ENDLOOP</span><span class="p">.</span>
+        <span class="k">ENDCASE</span><span class="p">.</span>
+        <span class="k">IF</span> <span class="n">iv_add_fname</span> <span class="k">eq</span> <span class="s1">'X'</span><span class="p">.</span>
+          <span class="k">IF</span> <span class="n">lv_colname_type</span> <span class="k">eq</span> <span class="s1">'C'</span> <span class="k">or</span> <span class="n">lv_colname_type</span> <span class="k">eq</span> <span class="s1">'D'</span><span class="p">.</span>
+            <span class="k">LOOP</span> <span class="k">AT</span> <span class="n">lt_fcat</span> <span class="k">ASSIGNING</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;</span><span class="p">.</span>
+              <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">reptext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">reptext</span>
+              <span class="o">&amp;&amp;</span> <span class="n">iv_fname_seperator</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="n">fs_fcat</span><span class="o">&gt;-</span><span class="n">fieldname</span><span class="p">.</span>
+            <span class="k">ENDLOOP</span><span class="p">.</span>
+          <span class="k">ENDIF</span><span class="p">.</span>
+        <span class="k">ENDIF</span><span class="p">.</span>
+        <span class="c1">"--------</span>
+
+
+        <span class="k">GET</span> <span class="k">REFERENCE</span> <span class="k">OF</span> <span class="n">it_itab</span> <span class="k">INTO</span> <span class="n">lr_itab</span><span class="p">.</span>
+
+        <span class="k">DATA</span><span class="p">(</span><span class="n">lo_result</span><span class="p">)</span> <span class="o">=</span>
+          <span class="n">cl_salv_ex_util</span><span class="o">=&gt;</span><span class="n">factory_result_data_table</span><span class="p">(</span>
+            <span class="n">r_data</span>         <span class="o">=</span> <span class="n">lr_itab</span><span class="c1">"DATA REFESANS İSTİYOR</span>
+            <span class="n">t_fieldcatalog</span> <span class="o">=</span> <span class="n">lt_fcat</span> <span class="p">).</span>
+
+        <span class="n">cl_salv_bs_tt_util</span><span class="o">=&gt;</span><span class="n">if_salv_bs_tt_util</span><span class="o">~</span><span class="nb">transform</span><span class="p">(</span>
+          <span class="k">EXPORTING</span>
+            <span class="n">xml_type</span>      <span class="o">=</span> <span class="n">if_salv_bs_xml</span><span class="o">=&gt;</span><span class="n">c_type_xlsx</span>
+            <span class="n">xml_version</span>   <span class="o">=</span> <span class="n">cl_salv_bs_a_xml_base</span><span class="o">=&gt;</span><span class="n">get_version</span><span class="p">(</span> <span class="p">)</span>
+            <span class="n">r_result_data</span> <span class="o">=</span> <span class="n">lo_result</span>
+            <span class="n">xml_flavour</span>   <span class="o">=</span> <span class="n">if_salv_bs_c_tt</span><span class="o">=&gt;</span><span class="n">c_tt_xml_flavour_export</span>
+            <span class="n">gui_type</span>      <span class="o">=</span> <span class="n">if_salv_bs_xml</span><span class="o">=&gt;</span><span class="n">c_gui_type_gui</span>
+          <span class="k">IMPORTING</span>
+            <span class="k">xml</span>           <span class="o">=</span> <span class="n">lv_xstring</span> <span class="p">).</span>
+
+
+        <span class="k">CALL</span> <span class="k">FUNCTION</span> <span class="s1">'SCMS_XSTRING_TO_BINARY'</span>
+          <span class="k">EXPORTING</span>
+            <span class="k">buffer</span>        <span class="o">=</span> <span class="n">lv_xstring</span>
+          <span class="k">IMPORTING</span>
+            <span class="n">output_length</span> <span class="o">=</span> <span class="n">lv_length</span>
+          <span class="k">TABLES</span>
+            <span class="n">binary_tab</span>    <span class="o">=</span> <span class="n">lv_xml_stream</span><span class="p">.</span>
+
+
+        <span class="k">data</span> <span class="n">lv_path</span> <span class="k">TYPE</span> <span class="k">string</span><span class="p">.</span>
+        <span class="n">lv_path</span> <span class="o">=</span> <span class="n">iv_path</span><span class="p">.</span>
+        <span class="k">CALL</span> <span class="k">METHOD</span> <span class="n">cl_gui_frontend_services</span><span class="o">=&gt;</span><span class="n">gui_download</span>
+          <span class="k">EXPORTING</span>
+            <span class="n">bin_filesize</span> <span class="o">=</span> <span class="n">lv_length</span>
+            <span class="n">filetype</span>     <span class="o">=</span> <span class="s1">'BIN'</span>
+            <span class="n">filename</span>     <span class="o">=</span> <span class="n">lv_path</span>
+          <span class="k">CHANGING</span>
+            <span class="n">data_tab</span>     <span class="o">=</span> <span class="n">lv_xml_stream</span>
+          <span class="k">EXCEPTIONS</span>
+            <span class="k">OTHERS</span>       <span class="o">=</span> <span class="mi">1</span><span class="p">.</span>
+        <span class="k">IF</span> <span class="n">sy</span><span class="o">-</span><span class="n">subrc</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span><span class="p">.</span>
+<span class="cm">*           MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO</span>
+<span class="cm">*                      WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.</span>
+        <span class="k">ENDIF</span><span class="p">.</span>
+
+    <span class="k">CATCH</span> <span class="k">cx_root</span><span class="p">.</span>
+        <span class="k">CLEAR</span> <span class="n">lv_xstring</span><span class="p">.</span>
+        <span class="n">ev_message</span> <span class="o">=</span> <span class="s1">'NOK'</span><span class="p">.</span>
+        <span class="k">RETURN</span><span class="p">.</span>
+    <span class="k">ENDTRY</span><span class="p">.</span>
+
+
+  <span class="k">endmethod</span><span class="p">.</span>
+</code></pre></div></div>
+
+            </main>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<script src="/assets/js/abap.js"></script>
+
+<script src="/assets/js/codeblock.js"></script>
+        <footer class="site-footer">
+
+    <p> © 2026 Tarık AÇIKGÖZ Personal Website / Portfolio</p>
+
+</footer>
+
+    </body>
+</html>
