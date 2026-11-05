@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Engineer portfolio, SAP ABAP projects, .NET development and technical articles.">
+    <title>Tarık AÇIKGÖZ Personal Website / Portfolio</title>
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+    
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/header-navigator.css">
+    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="stylesheet" href="/assets/css/date.css">
+    <link rel="stylesheet" href="/assets/css/content-navigator.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GPK2F45W6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GPK2F45W6X');
+</script>
+
+    <body>
+
+        <header class="site-header"
+        style="background-image: url('/images/banner.png');">
+    
+
+
+    <div class="header-main">
+        <img src="/images/logo.png" alt="Logo" class="header-logo">
+        
+        <div class="header-title">
+            <h1>Tarık AÇIKGÖZ</h1>
+            <p>Computer Engineer</p>
+            <p>tarikacikgoz96@gmail.com</p>
+            <div class="social-links">
+                
+                    <a href="https://www.linkedin.com/in/tarikacikgoz1996/">
+                        <img src="/images/icon_linkedin.png"
+                            alt="LinkedIn"
+                            class="icon-logo">
+                    </a>
+                
+                    <a href="https://github.com/tarikacikgoz96">
+                        <img src="/images/icon_github.png"
+                            alt="GitHub"
+                            class="icon-logo">
+                    </a>
+                
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="header-badges">
+                
+                    <img src="/images/badge_tsk.png"
+                        alt="TSK"
+                        class="icon-badge">
+                
+                    <img src="/images/badge_ege.png"
+                        alt="Ege University"
+                        class="icon-badge">
+                
+            </div>
+            <div class="header-words">
+                <p>Yalnız tek bir şeye ihtiyacımız vardır; çalışkan olmak.</p>
+                <p> M. Kemal ATATÜRK</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</header>
+
+
+
+
+        <div class="header-navigator">
+
+    <button class="menu-toggle">
+    ☰ Menu
+    </button>
+
+    <nav class="header-nav">
+        
+
+        
+
+            <a href="/"
+               class="">
+                Home Page
+            </a>
+
+        
+
+            <a href="/aboutMe/"
+               class="">
+                About Me
+            </a>
+
+        
+
+            <a href="/profile/"
+               class="">
+                Profile
+            </a>
+
+        
+
+            <a href="/projects/"
+               class="">
+                Projects
+            </a>
+
+        
+
+            <a href="/devNotes/"
+               class="">
+                Dev Notes
+            </a>
+
+        
+
+            <a href="/articles/"
+               class="">
+                Articles
+            </a>
+
+        
+    </nav>
+    
+</div>
+
+<script src="/assets/js/header-navigator.js"></script>
+        
+        <div class="page">
+            <main class="main-content">
+                <h1 id="sap-development-general-module-tables">SAP Development General Module Tables</h1>
+
+<div class="content-dates">
+
+    
+    <span class="content-date">
+        Published: 03.11.2026
+    </span>
+    
+
+    
+    <span class="content-date">
+        Updated: 03.11.2026
+    </span>
+    
+
+</div>
+
+<p>Kariyerimde geliştirmelerde karşılaştığım ve yine SAP geliştiricilerinin sıkça kullandığı temel tabloların kısa tanıtımıdır.</p>
+
+<h2 id="fi">FI</h2>
+<p>Muhasebe ana modülü. Gelir gider faturalarının girilmesi, hesaplara atanması<br />
+Sadece FI da olan faturalar olduğu gibi, SD ve MM faturalarının da FI’ya dönüşmüş halleri bulunur.</p>
+<ul>
+  <li>SKA1 : Ana hesap ana verileri (hesap planı bazında)</li>
+  <li>SKB1 : Ana hesap ana verileri (şirket kodu bazında)</li>
+  <li>BKPF : Muhasebe belgesi başlık bilgileri (FI faturası)</li>
+  <li>BSEG : Muhasebe belgesi kalem bilgileri (FI faturası)</li>
+  <li>ACDOCA : FI ve CO kayılarının birleşik tutulması. Muhasebe belgesi kalem bazında HANA<br />
+(Fatura-kalem-masraf yeri-masraf çeşidi)</li>
+  <li>T001 : Şirket kodları</li>
+</ul>
+
+<h2 id="mm">MM</h2>
+<p>Malzeme yönetim modülüdür.<br />
+Dışardan alınan ve üretilen malzemelerin kayıtları tutulur.<br />
+Satın Alma Talebi -&gt; Satın Alma Siparişi -&gt; Mal Girişi -&gt; MM Faturası</p>
+<ul>
+  <li>MARA : Genel malzeme ana verileri, malzeme tanımlama</li>
+  <li>MAKT : Malzeme açıklamaları</li>
+  <li>MARC : Malzeme - Üretim yeri</li>
+  <li>MARD : Malzeme - depo - miktar bilgisi</li>
+  <li>EBAN : Satın alma talebi başlıkları (SAT)</li>
+  <li>EBKN : Satın alma talebi kalemleri (SAT)</li>
+  <li>EKKO : Satın alma belgesi başlıkları (SAS)</li>
+  <li>EKPO : Satın alma belgesi kalemleri (SAS)</li>
+  <li>EKKN : Satınalma belgesinde hesap tayini (SAS)</li>
+  <li>EKBE : SAS kalem faturaları geçmişi (SAS)</li>
+  <li>MKPF : Malzeme belgesi başlıkları (Mal girişi)</li>
+  <li>MSEG : Malzeme belgesi kalemleri (Mal girişi)</li>
+  <li>MATDOC : Malzeme hareketleri HANA (Depo-miktar vb.)</li>
+  <li>RBKP : Malzeme satın alma faturası (MM Faturası)</li>
+  <li>RSEG : Malzeme satın alma fatura kalemi (MM Faturası)</li>
+  <li>LFA1 : Satıcı ana verileri (Supplier)</li>
+  <li>LFB1 : Satıcı ana verileri (şirket kodu bazında)</li>
+</ul>
+
+<h2 id="pp">PP</h2>
+<p>Malzemelerden ürün oluşturulur, buna ürün ağacı(BOM) denir.</p>
+<ul>
+  <li>MAST : Malzeme - BOM bağlantısı</li>
+  <li>STKO : BOM başlığı</li>
+  <li>STPO : BOM kalemleri</li>
+  <li>AFKO : Üretim emri başlığı</li>
+  <li>AFPO : Üretim emri kalemleri</li>
+</ul>
+
+<h2 id="sd">SD</h2>
+<p>Dışarıya sattığımız ürünlerin modülüdür.<br />
+Sipariş -&gt; Teslimat -&gt; Faturalama şeklinde bir akış vardır.</p>
+<ul>
+  <li>KNA1 : Müşteri ana verileri (Customer)</li>
+  <li>KNB1 :Müşteri ana verileri (şirket kodu bazında)</li>
+  <li>VBAK : Satış siparişi belgesi: Başlık verileri</li>
+  <li>VBAP : Satış siparişi belgesi: Kalem verileri</li>
+  <li>LIKP : Teslimat belgesi: Başlık verileri</li>
+  <li>LIPS : Teslimat belgesi: Kalem verileri</li>
+  <li>VBRK : Satış Faturalama: Başlık verileri (SD faturası)</li>
+  <li>VBRP : Satış Faturalama: Kalem verileri (SD faturası)</li>
+  <li>KONV : Satış Faturalama: Belge Koşulları (İndirim, KDV vb.)</li>
+  <li>PRCD_ELEMENTS : KONV’nin HANA versiyonu</li>
+  <li>VBFA : Satış belge akışı-bağlantıları</li>
+</ul>
+
+<h2 id="co">CO</h2>
+<p>Maliyet muhasebesidir. Hangi alanda (masraf yeri, masraf çeşidi, hesap planı) ne kadar harcama yapıldı vb.</p>
+<ul>
+  <li>CSKS : Masraf yerleri (KOKRS-KOSTL-DATBI)</li>
+  <li>CSKT : Masraf yerleri detay</li>
+  <li>CSKA : Masraf çeşitleri (KTOPL-KSTAR)</li>
+  <li>CSKB : Masraf çeşitleri kontrol tablosu (KOKRS-KSTAR-DATBI)</li>
+  <li>SKA1 : G/L hesap no bilgileri (KTOPL-SAKNR)</li>
+  <li>SKB1 : G/L hesap no bilgileri (BUKRS-SAKNR)</li>
+  <li>COSP : Masraf toplamı (Harcamalar)</li>
+  <li>FAGLFLEXT : Defteri Kebir: Toplamlar (COSP yerine, Masraf yeri-Hesap bazında harcama yıllık-aylık)</li>
+  <li>T004 : Hesap planları (KTOPL)</li>
+  <li>TKA02 : KOKRS-BUKRS ataması<br />
+(KOKRS-BUKRS: kontrol ve şirket kodu, KSTAR-SAKNR: masraf çeşidi/hesap no, <br />
+KTOPL: hesap planı, KOSTL: masraf yeri, RLDNR: defter)</li>
+</ul>
+
+<h1 id="lo-vc">LO-VC</h1>
+<p>Malzemenin-ürünün özelliklerinin belirtilmesi.<br />
+Sınıf -&gt; Karakteristik -&gt; Değer ilişkisi vardır.</p>
+<ul>
+  <li>KLAH : Sınıf ana verileri</li>
+  <li>KSML : Sınıf – karakteristik bağlantısı</li>
+  <li>CABN : Karakteristik ana verileri</li>
+  <li>CABNT : Karakteristik açıklamaları</li>
+  <li>CAWN : Karakteristik değerleri</li>
+  <li>CAWNT : Karakteristik değer açıklamaları</li>
+  <li>AUSP : Nesnelere atanmış karakteristik değerleri</li>
+</ul>
+
+            </main>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<script src="/assets/js/abap.js"></script>
+
+<script src="/assets/js/codeblock.js"></script>
+        <footer class="site-footer">
+
+    <p> © 2026 Tarık AÇIKGÖZ Personal Website / Portfolio</p>
+
+</footer>
+
+    </body>
+</html>
